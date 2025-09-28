@@ -6,6 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Étudiant</title>
   <link rel="stylesheet" href="stylesheet.css">
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("F38ACmNnMwm_sZeRG"); // remplace par ton User ID EmailJS
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_3kj3yex', 'template_1h1bx1o', this)
+        .then(function () {
+          alert('Message envoyé avec succès !');
+          document.getElementById('contact-form').reset();
+        }, function (error) {
+          alert('Erreur lors de l\'envoi : ' + JSON.stringify(error));
+        });
+    });
+  </script>
+
 </head>
 
 <body>
@@ -35,46 +55,46 @@
   </section>
 
   <!-- Parcours -->
-<section id="parcours">
-  <h2>Mon parcours</h2>
-  <div class="timeline">
+  <section id="parcours">
+    <h2>Mon parcours</h2>
+    <div class="timeline">
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>2024 - Présent</h3>
-        <p>Préparation d'un Bachelor Administrateur Systèmes & Réseaux et Bases de Données à l'IPI de Toulouse.<br>
-        Actuellement en deuxième année.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2024 - Présent</h3>
+          <p>Préparation d'un Bachelor Administrateur Systèmes & Réseaux et Bases de Données à l'IPI de Toulouse.<br>
+            Actuellement en deuxième année.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>2022 - 2024</h3>
-        <p>Formation à distance : "Graduate Développeur Front-end".</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2022 - 2024</h3>
+          <p>Formation à distance : "Graduate Développeur Front-end".</p>
+        </div>
       </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>2021 - 2022</h3>
-        <p>Vendeur Polyvalent - DECATHLON Réunion.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2021 - 2022</h3>
+          <p>Vendeur Polyvalent - DECATHLON Réunion.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>2020</h3>
-        <p>Obtention du Baccalauréat Scientifique - Mention Assez Bien.<br>
-        Mention Européenne Anglais.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2020</h3>
+          <p>Obtention du Baccalauréat Scientifique - Mention Assez Bien.<br>
+            Mention Européenne Anglais.</p>
+        </div>
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 
   <!-- Projets Personnels -->
@@ -262,10 +282,10 @@
   <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea placeholder="Votre message" required></textarea>
+    <form id="contact-form">
+      <input type="text" name="user_name" placeholder="Votre nom" required>
+      <input type="email" name="user_email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
   </section>
