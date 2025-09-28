@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Étudiant</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <h1>Mon Portfolio</h1>
+      <button class="burger" id="burger">&#9776;</button>
+      <ul id="nav-links">
+        <li><a href="#about">Présentation</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Présentation -->
+  <section id="about">
+    <h2>À propos de moi</h2>
+    <p>Je suis étudiant à l'Institut polytechnique et Informatique de Toulouse pour obtenir un
+      <strong>Bachelor Administrateur Systèmes, Réseaux et Bases de Données</strong>.
+      Passionné par l’informatique, j’aime relever des défis et construire des projets qui combinent réseau, systèmes et
+      bases de données.
+    </p>
+  </section>
+
+  <!-- Parcours -->
+  <section id="parcours">
+    <h2>Mon parcours</h2>
+    <ul>
+      <li><strong>2023 - Présent :</strong> Bachelor Administrateur Systèmes & Réseaux</li>
+      <li><strong>2021 - 2023 :</strong> DUT Informatique</li>
+      <li><strong>2018 - 2021 :</strong> Baccalauréat Scientifique</li>
+    </ul>
+  </section>
+
+  <!-- Projets Personnels -->
+  <section id="projects">
+    <h2>Projets Personnels</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Serveur Personel Proxmox</h3>
+        <p>J’ai mis en place un laboratoire virtuel à domicile me permettant de tester et d’approfondir mes compétences en virtualisation, sécurité et automatisation...</p>
+        <button class="btn-modal" data-modal="modal6">En savoir plus</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets Académiques -->
+  <section id="projects">
+    <h2>Projets Académiques</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Projet Laboratoire 1ère année </h3>
+        <p>Le projet laboratoire est un projet académique inter-promotion où chaque groupe doit mettre en place
+          différentes technologies et infrastructures...</p>
+        <button class="btn-modal" data-modal="modal4">En savoir plus</button>
+      </div>
+      <div class="project-card">
+        <h3>Projet Piscine 1ére année</h3>
+        <p>Le but du projet étaitLe but du projet était de mettre en place une infrastructure complète (système, réseau,
+          services)
+          nécessaire au fonctionnement d'une entreprise fictive...</p>
+        <button class="btn-modal" data-modal="modal5">En savoir plus</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals (tous les projets) -->
+
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Projet Laboratoire 1ère année</h3>
+      <p>
+        Le projet laboratoire est un projet scolaire inter-promotion où chaque groupe doit mettre en place
+        différentes technologies et infrastructures.<br>
+        Chaque promotion se voit attribuer un rôle différent selon ses compétences.<br><br>
+
+        En première année, j’ai eu le rôle de technicien.<br><br>
+
+        Tâches effectuées :<br>
+        <li>Test des différentes procédures écrites par les promotions supérieures</li>
+        <li>Mise en place d’un serveur Proxmox</li>
+        <li>Création de machines virtuelles (VM)</li>
+        <li>Tests de virtualisation imbriquée</li>
+      </p>
+
+    </div>
+  </div>
+
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <h3>Projet Piscine 1ére année</h3>
+      <p><br>
+        Le but du projet était de mettre en place une infrastructure complète (système, réseau, services)
+        nécessaire au fonctionnement d'une entreprise fictive.<br>
+
+        La promotion était répartie en plusieurs groupes, chacun attribué à un service différent.<br><br>
+
+        Notre groupe était assigné au DHCP et au plan d’adressage IP. Nous avons poussé le projet plus loin en
+        installant un OPNsense
+        qui s’occupait du DHCP, des réservations et du pare-feu.<br><br>
+
+        Tâches exécutées :<br>
+        <li>Installation et configuration d'un OPNsense</li>
+        <li>Création du plan d’adressage IP</li>
+        <li>Configuration du DHCP</li>
+        <li>Mise en place des réservations</li>
+        <li>Mise en place des règles et des différents sous-réseaux selon le contexte du projet</li>
+      </p>
+
+    </div>
+  </div>
+
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <h3>Serveur Personel Proxmox</h3>
+      <p><br>
+        J’ai mis en place un laboratoire virtuel à domicile me permettant de tester et d’approfondir mes compétences en virtualisation, sécurité et automatisation.<br><br>
+
+        J’ai installé et configuré un serveur Proxmox à la maison, sur lequel j’ai déployé plusieurs machines virtuelles
+        pour simuler un environnement réseau professionnel.<br><br>
+
+        Un routeur/firewall OPNsense a été mis en place pour gérer le routage, le pare-feu, le DHCP et les réservations
+        IP. J’ai également configuré un VPN WireGuard pour permettre un accès sécurisé à distance à mon réseau
+        local.<br><br>
+
+        Enfin, j’ai commencé à expérimenter avec Ansible pour automatiser certaines tâches de configuration et de
+        déploiement sur mes machines virtuelles.<br><br>
+
+        Tâches réalisées :<br>
+        <li>Installation et configuration d’un serveur Proxmox</li>
+        <li>Déploiement et administration d’un OPNsense (routeur + pare-feu)</li>
+        <li>Configuration d’un VPN WireGuard</li>
+        <li>Tests et premières automatisations avec Ansible</li>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Compétences -->
+<section id="skills">
+  <h2>Compétences</h2>
+  <div class="skills-container">
+    <div class="skill-block">
+      <h3> Systèmes d’exploitation</h3>
+      <ul>
+        <li>Administration de Linux (Debian, Ubuntu, CentOS) et Windows Server</li>
+        <li>Gestion des utilisateurs, droits, processus et services</li>
+        <li>Scripting de base (Bash, PowerShell)</li>
+        <li>Surveillance et maintenance (logs, monitoring)</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3> Réseaux</h3>
+      <ul>
+        <li>Modèle OSI et protocole TCP/IP</li>
+        <li>Configuration IP, sous-réseaux et VLAN</li>
+        <li>Routage statique et dynamique (RIP, OSPF, EIGRP)</li>
+        <li>Protocoles : DHCP, DNS, HTTP/HTTPS, FTP, SSH, SNMP</li>
+        <li>Sécurisation (pare-feu, ACL, VPN)</li>
+        <li>Supervision (Wireshark, Nagios, Zabbix)</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3> Matériel & Virtualisation</h3>
+      <ul>
+        <li>Configuration de routeurs et switchs (Cisco Packet Tracer, GNS3)</li>
+        <li>Déploiement de machines virtuelles (VMware, VirtualBox, Proxmox)</li>
+        <li>Gestion de la haute disponibilité et sauvegardes</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3> Bases de données & Services</h3>
+      <ul>
+        <li>SQL (MySQL, PostgreSQL)</li>
+        <li>Gestion de services réseau (Apache/Nginx, Samba, FTP)</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3> Cybersécurité</h3>
+      <ul>
+        <li>Principes de chiffrement et authentification</li>
+        <li>Sécurisation des comptes et des accès</li>
+        <li>Diagnostic de vulnérabilités basiques</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3> Outils & langages</h3>
+      <ul>
+        <li>Shell scripting (Bash)</li>
+        <li>Python (bases pour l’automatisation réseau)</li>
+        <li>Git / GitHub (versioning)</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Méthodologie & Soft skills</h3>
+      <ul>
+        <li>Travail en équipe sur des projets réseaux</li>
+        <li>Documentation technique (schémas, procédures, rapports)</li>
+        <li>Résolution de problèmes (troubleshooting)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 - Mon Portfolio Étudiant</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+Portofolio 
+
+Projet personnel 
+
+-Serveur Proxmox Maison 
+Mise en place d'un serveur Proxmox 
+Configuration et administration d'un Opnsense ( Routeur + Pare-feu ) 
+Configuration d'un VPN Wireguard 
+Tests ansible 
+
+
+
+
+
+
+
+Projet académique 
+
+Projet Laboratoire 1ère année 
+Le projet laboratoire est un projet académique inter-promotion ou chaque groupe doit mettre en place différentes technologies et infrastructures.
+Chaque promotion se voit attribué un rôle différents selon ses compétences
+
+En 1ére année j'ai eu le rôle de technicien.
+
+Tâches effectué : 
+Tests des différentes procédures écrit par les promotions supérieurs
+Mise en place d'un serveur Proxmox
+Création de VM
+Tests de virtualisation imbriquée
+
+Projet Piscine 1ére année 
+
+Le but du projet était de mettre en place une infrastructure complète (système, réseau, services) nécessaire au fonctionnement d'une entreprise fictive.<br>
+
+La promotion répartie en plusieurs groupes , chacun attribué à un service différents<br>
+
+Notre groupe était assigné au DHCP et IP Plan et nous avons poussé le projet plus loin en installant un Opnsense qui s'occupera du DHCP , des réservations et du pare feu<br>
+
+Tâches exécuté : <br>
+Création de l'adressage l'ip
+Configuration DHCP 
+Mise en place des réservations
+Mise en place des rules et des différents sous réseaux d'après le contexte du projet
+
+
+je veux que les cards dans les projets académique et personel puisses s'ouvrir en pop-up quand on clique sur un bouton "en savoir plus" présent dans la "mini-card" qui elle à le titre et une brève explication du projet 
+
+fais uniquement le code des parties que je te demande stp adapte également le js et le css concerné
+
+
+
