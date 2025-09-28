@@ -230,9 +230,18 @@ h2 {
 }
 
 .skill-block ul li {
-  margin-bottom: 8px;
-  line-height: 1.4;
-  color: var(--secondary);
+  background: rgba(225, 220, 216, 0.05); /* léger fond contrasté */
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(225, 220, 216, 0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Effet hover discret */
+.skill-block ul li:hover {
+  background: rgba(35, 100, 43, 0.15); /* vert léger au survol */
+  transform: translateX(4px); /* petit effet de décalage */
 }
 
 /* Formulaire */
