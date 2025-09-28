@@ -110,6 +110,63 @@ h2 {
   text-align: center;
   color: var(--accent2);
 }
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 40px auto;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent); /* ligne verte verticale */
+  max-width: 600px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--tertiary); /* orange brique */
+  border: 3px solid var(--accent); /* vert */
+  border-radius: 50%;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.2);
+  background: var(--orange-hover);
+}
+
+.timeline-content {
+  margin-left: 30px;
+  background: rgba(225, 220, 216, 0.05); /* léger fond */
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(225, 220, 216, 0.1);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.timeline-content h3 {
+  color: var(--accent);
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.timeline-content p {
+  color: var(--secondary);
+  margin: 0;
+}
+
+.timeline-item:hover .timeline-content {
+  background: rgba(35, 100, 43, 0.15); /* vert léger */
+  transform: translateX(5px);
+}
+
+
 
 /* Projets */
 .project-grid {
