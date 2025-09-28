@@ -8,24 +8,6 @@
   <link rel="stylesheet" href="stylesheet.css">
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("F38ACmNnMwm_sZeRG"); // remplace par ton User ID EmailJS
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      emailjs.sendForm('service_3kj3yex', 'template_1h1bx1o', this)
-        .then(function () {
-          alert('Message envoyé avec succès !');
-          document.getElementById('contact-form').reset();
-        }, function (error) {
-          alert('Erreur lors de l\'envoi : ' + JSON.stringify(error));
-        });
-    });
-  </script>
-
 </head>
 
 <body>
@@ -288,6 +270,7 @@
       <textarea name="message" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
+    <p id="form-status" style="color:green;"></p>
   </section>
 
   <!-- Footer -->

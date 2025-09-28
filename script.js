@@ -8,13 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Message lors de l’envoi du formulaire
-const form = document.querySelector("form");
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  alert("Merci pour votre message ! Je vous répondrai bientôt.");
-  form.reset();
-});
+
 
 // Gestion des modals
 const modalBtns = document.querySelectorAll(".btn-modal");
@@ -53,17 +47,23 @@ burger.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
 
-// EmailJS pour le formulaire de contact
-emailjs.init("F38ACmNnMwm_sZeRG");
+// Initialisation EmailJS avec ton User ID
+    emailjs.init("F38ACmNnMwm_sZeRG");
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
 
-  emailjs.sendForm('service_3kj3yex', 'template_1h1bx1o', this)
-    .then(function() {
-      alert('Message envoyé avec succès !');
-      document.getElementById('contact-form').reset();
-    }, function(error) {
-      alert('Erreur lors de l\'envoi : ' + JSON.stringify(error));
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      // Envoi du formulaire
+      emailjs.sendForm('service_3kj3yex', 'template_9jo2gcs', this)
+        .then(function (response) {
+          status.textContent = "Message envoyé avec succès ! ✅";
+          status.style.color = "green";
+          form.reset(); // Réinitialise le formulaire
+        }, function (error) {
+          status.textContent = "Erreur lors de l'envoi : " + error.text;
+          status.style.color = "red";
+        });
     });
-});
