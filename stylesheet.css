@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset et base */
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +6,40 @@
   list-style: none;
 }
 
-/* Palette moderne */
+/* Typographie lisible */
+html {
+  font-size: 16px; /* taille de base */
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.7; /* aéré */
+  letter-spacing: 0.1px; /* meilleure lisibilité */
+  background: var(--primary);
+  color: var(--secondary);
+  -webkit-font-smoothing: antialiased; /* rendu plus doux */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Amélioration des titres */
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem; /* espace après paragraphes */
+  text-align: justify; /* bloc agréable à lire */
+}
+
+/* Palette sombre */
 :root {
-  --primary: #f9fafb;     /* fond clair */
-  --secondary: #1f2937;   /* texte foncé */
-  --accent: #3b82f6;      /* bleu moderne */
-  --accent2: #10b981;     /* vert doux */
+  --primary: #12170e;     /* fond sombre */
+  --secondary: #e1dcd8;   /* texte clair */
+  --accent: #23642b;      /* vert principal */
+  --accent2: #2f8d3e;     /* vert clair pour hover */
 }
 
 /* Global */
@@ -24,12 +52,13 @@ body {
 
 /* Header */
 header {
-  background: var(--secondary);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--secondary);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--accent);
 }
 
 header h1 {
@@ -49,7 +78,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: var(--primary);
+  color: var(--secondary);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
@@ -65,7 +94,7 @@ nav ul li a:hover {
   background: none;
   border: none;
   font-size: 2rem;
-  color: var(--primary);
+  color: var(--secondary);
   cursor: pointer;
 }
 
@@ -79,7 +108,7 @@ section {
 h2 {
   margin-bottom: 20px;
   text-align: center;
-  color: var(--accent);
+  color: var(--accent2);
 }
 
 /* Projets */
@@ -90,24 +119,25 @@ h2 {
 }
 
 .project-card {
-  background: white;
+  background: #1a2015;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid var(--accent);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
   transition: transform 0.3s, border-color 0.3s;
+  color: var(--secondary);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  border-color: var(--accent);
+  border-color: var(--accent2);
 }
 
 /* Bouton en savoir plus */
 .btn-modal {
   margin-top: 10px;
   background: var(--accent);
-  color: white;
+  color: var(--secondary);
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
@@ -129,17 +159,19 @@ h2 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
-  background: white;
+  background: #1a2015;
+  color: var(--secondary);
   margin: 10% auto;
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 1px solid var(--accent);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   animation: slideDown 0.4s ease;
 }
 
@@ -152,7 +184,7 @@ h2 {
 }
 
 .close:hover {
-  color: var(--accent);
+  color: var(--accent2);
 }
 
 /* Animations */
@@ -174,11 +206,11 @@ h2 {
 }
 
 .skill-block {
-  background: white;
+  background: #1a2015;
   border-radius: 10px;
   padding: 20px;
   border-left: 4px solid var(--accent);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
   transition: transform 0.3s, border-color 0.3s;
 }
 
@@ -189,7 +221,7 @@ h2 {
 
 .skill-block h3 {
   margin-bottom: 10px;
-  color: var(--accent);
+  color: var(--accent2);
 }
 
 .skill-block ul {
@@ -200,8 +232,8 @@ h2 {
 .skill-block ul li {
   margin-bottom: 8px;
   line-height: 1.4;
+  color: var(--secondary);
 }
-
 
 /* Formulaire */
 form {
@@ -214,14 +246,20 @@ form {
 
 form input, form textarea {
   padding: 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--accent);
   border-radius: 6px;
   font-size: 1rem;
+  background: #1a2015;
+  color: var(--secondary);
+}
+
+form input::placeholder, form textarea::placeholder {
+  color: #9ca3af;
 }
 
 form button {
   background: var(--accent);
-  color: white;
+  color: var(--secondary);
   border: none;
   padding: 12px;
   font-size: 1rem;
@@ -238,9 +276,10 @@ form button:hover {
 footer {
   text-align: center;
   padding: 15px;
-  background: var(--secondary);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--secondary);
   margin-top: 20px;
+  border-top: 1px solid var(--accent);
 }
 
 /* ===================== */
@@ -250,12 +289,13 @@ footer {
   nav ul {
     display: none;
     flex-direction: column;
-    background: var(--secondary);
+    background: var(--primary);
     position: absolute;
     top: 60px;
     right: 20px;
     width: 200px;
     padding: 10px;
+    border: 1px solid var(--accent);
     border-radius: 10px;
   }
 
