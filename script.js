@@ -1,6 +1,6 @@
 // Scroll fluide sur les liens de navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth"
@@ -48,22 +48,31 @@ burger.addEventListener("click", () => {
 });
 
 // Initialisation EmailJS avec ton User ID
-    emailjs.init("F38ACmNnMwm_sZeRG");
+emailjs.init("F38ACmNnMwm_sZeRG");
 
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault(); // Empêche le rechargement de la page
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-      // Envoi du formulaire
-      emailjs.sendForm('service_3kj3yex', 'template_9jo2gcs', this)
-        .then(function (response) {
-          status.textContent = "Message envoyé avec succès ! ✅";
-          status.style.color = "green";
-          form.reset(); // Réinitialise le formulaire
-        }, function (error) {
-          status.textContent = "Erreur lors de l'envoi : " + error.text;
-          status.style.color = "red";
-        });
+  // Récupération des valeurs du formulaire
+  const name = document.getElementById("user_name").value;
+  const email = document.getElementById("user_email").value;
+  const message = document.getElementById("message").value;
+
+  // Envoi avec EmailJS
+  emailjs.send("service_3kj3yex", "template_9jo2gcs", {
+    name: name,
+    email: email,
+    message: message
+  })
+    .then(function (response) {
+      status.textContent = "✅ Message envoyé avec succès !";
+      status.style.color = "green";
+      form.reset();
+    }, function (error) {
+      status.textContent = "❌ Erreur lors de l'envoi : " + error.text;
+      status.style.color = "red";
     });
+});
