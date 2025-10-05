@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Administrateur Systèmes & Réseaux</title>
   <link rel="stylesheet" href="stylesheet.css">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
+
 <body>
   <div class="bg-animation"></div>
 
@@ -28,7 +30,9 @@
   <section class="hero" id="hero">
     <div class="hero-content">
       <h1>Administrateur <span class="highlight">Systèmes & Réseaux</span></h1>
-      <p>Étudiant passionné par l'infrastructure IT, la virtualisation et la cybersécurité. Actuellement en Bachelor à l'IPI Toulouse.</p>
+      <p>Étudiant passionné par l'infrastructure IT, Actuellement en Bachelor à
+        l'IPI Toulouse.</p>
+      <h2><span class="highlight">Actuellement en recherche de stage</span></h2>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary">Voir mes projets</a>
         <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -39,7 +43,10 @@
   <section id="about">
     <h2 class="section-title">À propos</h2>
     <div class="about-content">
-      <p>Je suis étudiant à l'Institut Polytechnique et Informatique de Toulouse, où je prépare un <strong>Bachelor Administrateur Systèmes, Réseaux et Bases de Données</strong>. Passionné par l'infrastructure IT et la sécurité, j'aime relever des défis techniques et construire des solutions robustes combinant virtualisation, réseau et automatisation.</p>
+      <p>Je suis étudiant à l’Institut Polytechnique et Informatique de Toulouse, où je prépare un <strong>Bachelor en
+          Administration des Systèmes, Réseaux et Bases de Données</strong>. Passionné par l’infrastructure IT,
+        l’automatisation et la sécurité informatique, j’aime découvrir de nouvelles technologies et les approfondir tout
+        en relevant de nouveaux défis&nbsp;!</p>
     </div>
   </section>
 
@@ -49,32 +56,32 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>2024 - Présent</h3>
-          <p>Bachelor Administrateur Systèmes & Réseaux et Bases de Données à l'IPI de Toulouse. Actuellement en deuxième année avec focus sur la virtualisation et la cybersécurité.</p>
+          <h3>2020</h3>
+          <p>Baccalauréat Scientifique - Mention Assez Bien avec Mention Européenne Anglais.</p>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2022 - 2024</h3>
-          <p>Formation à distance "Graduate Développeur Front-end" - Acquisition de compétences en développement web moderne.</p>
-        </div>
-      </div>
-
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <h3>2021 - 2022</h3>
-          <p>Vendeur Polyvalent chez DECATHLON Réunion - Développement de compétences relationnelles et travail d'équipe.</p>
+          <p>Vendeur Polyvalent chez DECATHLON Réunion – développement des soft skills et travail en équipe.</p>
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>2020</h3>
-          <p>Baccalauréat Scientifique - Mention Assez Bien avec Mention Européenne Anglais.</p>
+          <h3>2022 - 2024</h3>
+          <p>Formation à distance « Graduate Développeur Front-End » (non obtenue) – acquisition de compétences en
+            développement web.</p>
+          moderne.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2024 - Présent</h3>
+          <p>Bachelor Administrateur Systèmes & Réseaux et Bases de Données à l'IPI de Toulouse. Actuellement en
+            deuxième année.</p>
         </div>
       </div>
     </div>
@@ -82,7 +89,7 @@
 
   <section id="projects">
     <h2 class="section-title">Projets</h2>
-    
+
     <h3 style="color: var(--accent); margin-bottom: 2rem; font-size: 1.75rem;">Projets Personnels</h3>
     <div class="project-grid">
       <div class="project-card" data-modal="modal-proxmox">
@@ -91,7 +98,7 @@
         <div>
           <span class="project-tag">Proxmox</span>
           <span class="project-tag">OPNsense</span>
-          <span class="project-tag">WireGuard</span>
+          <span class="project-tag">VPN</span>
           <span class="project-tag">Ansible</span>
         </div>
       </div>
@@ -123,6 +130,10 @@
 
   <section id="skills">
     <h2 class="section-title">Compétences</h2>
+    <div class="skill-level-badge">
+      <span class="level-icon">📊</span>
+      <span class="level-text">Niveau actuel : <strong>Junior</strong></span>
+    </div>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>💻 Systèmes d'exploitation</h3>
@@ -189,19 +200,18 @@
     <h2 class="section-title">Contact</h2>
     <form class="contact-form" id="contact-form">
       <div class="form-group">
-        <input type="text" id="user_name" placeholder="Votre nom" required>
+        <input type="text" name="from_name" id="user_name" placeholder="Votre nom" required>
       </div>
       <div class="form-group">
-        <input type="email" id="user_email" placeholder="Votre email" required>
+        <input type="email" name="from_email" id="user_email" placeholder="Votre email" required>
       </div>
       <div class="form-group">
-        <textarea id="message" placeholder="Votre message" required></textarea>
+        <textarea name="message" id="message" placeholder="Votre message" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Envoyer le message</button>
     </form>
     <p id="form-status" style="text-align: center; margin-top: 1rem;"></p>
   </section>
-
   <footer>
     <p>© 2025 - Portfolio Administrateur Systèmes & Réseaux</p>
   </footer>
@@ -211,13 +221,15 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>🖥️ Serveur Personnel Proxmox</h3>
-      <p>J'ai mis en place un laboratoire virtuel complet à domicile pour tester et approfondir mes compétences en virtualisation, sécurité et automatisation.</p>
-      <p>Ce projet m'a permis de simuler un environnement réseau professionnel avec plusieurs machines virtuelles interconnectées.</p>
+      <p>J'ai mis en place un laboratoire virtuel complet à domicile pour tester et approfondir mes compétences en
+        virtualisation, sécurité et automatisation.</p>
+      <p>Ce projet m'a permis de simuler un environnement réseau professionnel avec plusieurs machines virtuelles
+        interconnectées.</p>
       <h4 style="color: var(--accent); margin-top: 1.5rem;">Technologies utilisées :</h4>
       <ul>
         <li>Installation et configuration d'un serveur Proxmox VE</li>
         <li>Déploiement et administration d'OPNsense (routeur + pare-feu)</li>
-        <li>Configuration d'un VPN WireGuard pour accès distant sécurisé</li>
+        <li>Configuration d'un VPN pour accès distant sécurisé</li>
         <li>Automatisation avec Ansible pour le déploiement et la configuration</li>
         <li>Gestion du DHCP et des réservations IP</li>
       </ul>
@@ -228,8 +240,9 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>🔬 Projet Laboratoire 1ère année</h3>
-      <p>Projet académique inter-promotion où chaque groupe met en place différentes technologies et infrastructures selon son niveau.</p>
-      <p>En première année, j'ai occupé le rôle de technicien, chargé de tester les procédures et mettre en place l'infrastructure de base.</p>
+      <p>Projet académique inter-promotion, où chaque groupe met en place différentes technologies et infrastructures
+        selon son niveau.<br><br> En première année, j’ai occupé le rôle de technicien, chargé de tester les procédures
+        et de mettre en place l’infrastructure de base.</p>
       <h4 style="color: var(--accent); margin-top: 1.5rem;">Tâches réalisées :</h4>
       <ul>
         <li>Test et validation des procédures écrites par les promotions supérieures</li>
@@ -245,14 +258,16 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>🏊 Projet Piscine 1ère année</h3>
-      <p>Mise en place d'une infrastructure réseau complète pour une entreprise fictive. La promotion était répartie en groupes, chacun responsable d'un service spécifique.</p>
-      <p>Notre groupe était assigné au DHCP et au plan d'adressage IP. Nous avons déployé une solution OPNsense complète.</p>
+      <p>Le but du projet était de mettre en place une infrastructure complète (système, réseau, services) nécessaire au
+        fonctionnement d’une entreprise fictive.<br><br> La promotion était répartie en plusieurs groupes, chacun étant
+        attribué à un service différent.<br><br> Notre groupe était chargé du DHCP et du plan d’adressage IP. Nous avons
+        poussé le projet plus loin en installant un <strong>OPNsense</strong>, chargé de gérer le DHCP, les réservations
+        et le pare-feu.</p>
       <h4 style="color: var(--accent); margin-top: 1.5rem;">Réalisations :</h4>
       <ul>
         <li>Installation et configuration d'un pare-feu OPNsense</li>
         <li>Conception du plan d'adressage IP pour toute l'infrastructure</li>
         <li>Configuration du serveur DHCP avec zones multiples</li>
-        <li>Mise en place des réservations DHCP pour serveurs</li>
         <li>Configuration des règles de pare-feu par sous-réseau</li>
         <li>Segmentation réseau selon les besoins de l'entreprise</li>
       </ul>
@@ -261,4 +276,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
