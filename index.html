@@ -125,6 +125,15 @@
           <span class="project-tag">Réseau</span>
         </div>
       </div>
+      <div class="project-card" data-modal="modal-redteam">
+        <h3>🏊 Atelier Red-Team</h3>
+        <p>Infrastructure réseau complète pour entreprise fictive avec OPNsense, DHCP et plan d'adressage IP.</p>
+        <div>
+          <span class="project-tag">OPNsense</span>
+          <span class="project-tag">DHCP</span>
+          <span class="project-tag">Réseau</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -178,9 +187,10 @@
       <div class="skill-card">
         <h3>🔒 Cybersécurité</h3>
         <ul>
+          <li></li>
           <li>Chiffrement et authentification</li>
           <li>Sécurisation des accès</li>
-          <li>Diagnostic de vulnérabilités</li>
+          <li>Outils de découverte</li>
           <li>VPN (WireGuard)</li>
         </ul>
       </div>
@@ -239,7 +249,7 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>🖥️ Serveur Personnel Proxmox</h3>
-      <p>J'ai mis en place un laboratoire virtuel complet à domicile pour tester et approfondir mes compétences en
+      <p>J'ai mis en place un laboratoire virtuel complet pour tester et approfondir mes compétences en
         virtualisation, sécurité et automatisation.</p>
       <p>Ce projet m'a permis de simuler un environnement réseau professionnel avec plusieurs machines virtuelles
         interconnectées.</p>
@@ -291,7 +301,25 @@
       </ul>
     </div>
   </div>
-
+  <div id="modal-redteam" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>🏊 Atelier Red-Team</h3>
+      <p>Le but du projet était de mettre en place une infrastructure complète (système, réseau, services) nécessaire au
+        fonctionnement d’une entreprise fictive.<br><br> La promotion était répartie en plusieurs groupes, chacun étant
+        attribué à un service différent.<br><br> Notre groupe était chargé du DHCP et du plan d’adressage IP. Nous avons
+        poussé le projet plus loin en installant un <strong>OPNsense</strong>, chargé de gérer le DHCP, les réservations
+        et le pare-feu.</p>
+      <h4 style="color: var(--accent); margin-top: 1.5rem;">Réalisations :</h4>
+      <ul>
+        <li>Installation et configuration d'un pare-feu OPNsense</li>
+        <li>Conception du plan d'adressage IP pour toute l'infrastructure</li>
+        <li>Configuration du serveur DHCP avec zones multiples</li>
+        <li>Configuration des règles de pare-feu par sous-réseau</li>
+        <li>Segmentation réseau selon les besoins de l'entreprise</li>
+      </ul>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 
