@@ -1,4 +1,3 @@
-
 // Burger menu
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
@@ -45,7 +44,7 @@ modals.forEach(modal => {
 
 // Initialiser EmailJS avec votre User ID
 (function () {
-  emailjs.init("F38ACmNnMwm_sZeRG"); // À remplacer par votre User ID EmailJS
+  emailjs.init("F38ACmNnMwm_sZeRG"); // Remplacez par votre User ID EmailJS
 })();
 
 // Form submission

@@ -52,12 +52,9 @@ body {
 }
 
 @keyframes drift {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0);
   }
-
   50% {
     transform: translate(-50px, -50px);
   }
@@ -76,12 +73,13 @@ header {
 }
 
 nav {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  gap: 2rem;
 }
 
 .logo {
@@ -91,12 +89,14 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 nav ul {
   display: flex;
   gap: 2rem;
   list-style: none;
+  align-items: center;
 }
 
 nav a {
@@ -124,6 +124,68 @@ nav a:hover {
 
 nav a:hover::after {
   width: 100%;
+}
+
+/* Actions dans le header */
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Actions dans le hero */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 255, 136, 0.3);
+}
+
+.btn-cv:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.5);
+}
+
+.btn-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 119, 181, 0.2);
+  border: 2px solid #0077b5;
+  border-radius: 8px;
+  color: #0077b5;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.btn-linkedin:hover {
+  background: #0077b5;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 119, 181, 0.4);
 }
 
 .burger {
@@ -210,7 +272,6 @@ nav a:hover::after {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -408,12 +469,9 @@ section {
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
@@ -430,36 +488,6 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.level-bar {
-  flex: 1;
-  min-width: 150px;
-  height: 8px;
-  background: rgba(0, 255, 136, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.level-progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), #00ccff);
-  border-radius: 10px;
-  box-shadow: 0 0 10px var(--accent);
-  animation: progressGlow 2s ease-in-out infinite;
-  position: relative;
-}
-
-.level-progress::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 2s infinite;
 }
 
 /* Skills */
@@ -583,7 +611,6 @@ section {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -594,7 +621,6 @@ section {
     transform: translateY(50px);
     opacity: 0;
   }
-
   to {
     transform: translateY(0);
     opacity: 1;
@@ -650,11 +676,29 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  nav {
+    flex-wrap: wrap;
+  }
+  
+  nav ul {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
   nav ul {
     display: none;
     position: absolute;
     top: 100%;
+    left: 0;
     right: 0;
     background: rgba(10, 14, 39, 0.98);
     backdrop-filter: blur(10px);
@@ -663,6 +707,7 @@ footer {
     border-radius: 8px;
     margin-top: 0.5rem;
     border: 1px solid rgba(0, 255, 136, 0.2);
+    width: 100%;
   }
 
   nav ul.show {
@@ -671,6 +716,25 @@ footer {
 
   .burger {
     display: block;
+  }
+
+  .nav-actions {
+    order: 2;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .btn-cv {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-linkedin {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 
   .timeline::before {
@@ -694,5 +758,19 @@ footer {
   .project-grid,
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .btn-cv span {
+    display: none;
+  }
+
+  .btn-cv::before {
+    content: '📄 CV';
   }
 }
