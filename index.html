@@ -23,6 +23,7 @@
         <li><a href="#about">À propos</a></li>
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#projects">Projets</a></li>
+        <li><a href="#documents">Documents</a></li>
         <li><a href="#skills">Compétences</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -36,10 +37,10 @@
         l'IPI Toulouse.</p>
       <h2><span class="highlight">Actuellement en recherche de stage</span></h2>
       <div class="hero-actions">
-        <a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer" class="btn-linkedin" title="Mon profil LinkedIn">
+        <a href="https://www.linkedin.com/in/votre-profil/" target="_blank" rel="noopener noreferrer" class="btn-linkedin" title="Mon profil LinkedIn">
           in
         </a>
-        <a href="COUTAYE-Thomas-CV-STAGE-IT.pdf" download class="btn-cv" title="Télécharger mon CV">
+        <a href="votre-cv.pdf" download class="btn-cv" title="Télécharger mon CV">
           <span>📄 Télécharger CV</span>
         </a>
       </div>
@@ -105,9 +106,6 @@
           <span class="project-tag">OPNsense</span>
           <span class="project-tag">VPN</span>
           <span class="project-tag">Ansible</span>
-          <span class="project-tag">Prometheus/Grafana</span>
-          <span class="project-tag">Wazuh</span>
-          <span class="project-tag">Serveur de stockage</span>
         </div>
       </div>
     </div>
@@ -121,7 +119,6 @@
           <span class="project-tag">Proxmox</span>
           <span class="project-tag">VM</span>
           <span class="project-tag">Tests</span>
-          <span class="project-tag">Rédaction de procédures</span>
         </div>
       </div>
 
@@ -146,6 +143,25 @@
     </div>
   </section>
 
+  <section id="documents">
+    <h2 class="section-title">Documents & Certifications</h2>
+    <div class="documents-grid">
+      <div class="document-card">
+        <div class="document-icon">📄</div>
+        <h3>Curriculum Vitae</h3>
+        <p>Mon CV détaillé avec mon parcours académique et professionnel</p>
+        <div class="document-actions">
+          <button class="btn-view" data-pdf="COUTAYE-Thomas-CV-STAGE-IT.pdf">
+            👁️ Visualiser
+          </button>
+          <a href="COUTAYE-Thomas-CV-STAGE-IT.pdf" download class="btn-download">
+            ⬇️ Télécharger
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <h2 class="section-title">Compétences</h2>
     <div class="skill-level-badge">
@@ -158,9 +174,9 @@
         <h3>💻 Systèmes d'exploitation</h3>
         <ul>
           <li>Linux (Debian, Ubuntu, CentOS)</li>
-          <li>Windows Server (AD DS, DNS, DHCP)</li>
+          <li>Windows Server (AD DS, DNS, DHCP, IIS)</li>
+          <li>Gestion utilisateurs et droits</li>
           <li>Scripting (Bash, PowerShell)</li>
-          <li>Serveurs de stockage (NAS/SAN)</li>
         </ul>
       </div>
 
@@ -196,18 +212,19 @@
       <div class="skill-card">
         <h3>🔒 Cybersécurité</h3>
         <ul>
-          <li>SIEM & XDR (Wazuh)</li>
-          <li>Détection d'intrusion (IDS/IPS)</li>
-          <li>Sécurisation des accès & Chiffrement</li>
+          <li>Chiffrement et authentification</li>
+          <li>Sécurisation des accès</li>
+          <li>Outils de découverte</li>
           <li>VPN (WireGuard)</li>
         </ul>
       </div>
 
       <div class="skill-card">
-        <h3>⚙️ Outils & Supervision</h3> <ul>
-          <li>Prometheus & Grafana</li>
-          <li>Node Exporter</li>
-          <li>Git / GitHub & Ansible</li>
+        <h3>⚙️ Outils & DevOps</h3>
+        <ul>
+          <li>Git / GitHub</li>
+          <li>Ansible (automatisation)</li>
+          <li>Shell scripting</li>
           <li>Wireshark</li>
         </ul>
       </div>
@@ -219,7 +236,10 @@
           <li>Communication claire</li>
           <li>Résolution de problèmes</li>
           <li>Adaptabilité</li>
-          <li>Curieux & Pédagogue</li>
+          <li>Gestion du temps</li>
+          <li>Esprit d'analyse</li>
+          <li>Pédagogue</li>
+          <li>Curieux</li>
         </ul>
       </div>
     </div>
@@ -262,8 +282,6 @@
         <li>Configuration d'un VPN pour accès distant sécurisé</li>
         <li>Automatisation avec Ansible pour le déploiement et la configuration</li>
         <li>Gestion du DHCP et des réservations IP</li>
-        <li>Expérimentation des outils SIEM/IDS/IPS sur Wazuh</li>
-        
       </ul>
     </div>
   </div>
@@ -320,6 +338,20 @@
         <li>Création d'un faux site bancaire avec Apache pour exercices d'ingénierie sociale et d'analyse</li>
         <li>Série de commandes et étapes pédagogiques pour observer la communication, l'attaque et les contre-mesures</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- Modal PDF Viewer -->
+  <div id="pdf-modal" class="modal">
+    <div class="modal-content modal-pdf">
+      <button class="modal-close">&times;</button>
+      <h3 id="pdf-title">Document</h3>
+      <div class="pdf-viewer-container">
+        <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+      </div>
+      <div class="pdf-actions">
+        <a id="pdf-download" href="" download class="btn btn-primary">⬇️ Télécharger ce document</a>
+      </div>
     </div>
   </div>
 

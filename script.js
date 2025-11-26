@@ -89,11 +89,46 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.project-card, .skill-card, .timeline-item').forEach(el => {
+document.querySelectorAll('.project-card, .skill-card, .timeline-item, .document-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'all 0.6s ease-out';
   observer.observe(el);
+});
+
+// PDF Viewer Modal
+const pdfModal = document.getElementById('pdf-modal');
+const pdfViewer = document.getElementById('pdf-viewer');
+const pdfTitle = document.getElementById('pdf-title');
+const pdfDownload = document.getElementById('pdf-download');
+const viewButtons = document.querySelectorAll('.btn-view');
+
+viewButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pdfPath = btn.getAttribute('data-pdf');
+    const cardTitle = btn.closest('.document-card').querySelector('h3').textContent;
+    
+    pdfViewer.src = pdfPath;
+    pdfTitle.textContent = cardTitle;
+    pdfDownload.href = pdfPath;
+    pdfDownload.download = pdfPath;
+    
+    pdfModal.classList.add('active');
+  });
+});
+
+// Close PDF modal
+const pdfModalClose = pdfModal.querySelector('.modal-close');
+pdfModalClose.addEventListener('click', () => {
+  pdfModal.classList.remove('active');
+  pdfViewer.src = '';
+});
+
+pdfModal.addEventListener('click', (e) => {
+  if (e.target === pdfModal) {
+    pdfModal.classList.remove('active');
+    pdfViewer.src = '';
+  }
 });
 
 // Active nav link on scroll
