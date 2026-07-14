@@ -1,154 +1,91 @@
-// Burger menu
+// ---------- Burger menu ----------
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
-
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
-
-// Close menu on link click
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('show');
+if (burger) {
+  burger.addEventListener('click', () => navLinks.classList.toggle('show'));
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('show'));
   });
-});
+}
 
-// Modals
-const projectCards = document.querySelectorAll('.project-card');
-const modals = document.querySelectorAll('.modal');
-const modalCloses = document.querySelectorAll('.modal-close');
-
-projectCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const modalId = card.getAttribute('data-modal');
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.add('active');
-    }
-  });
-});
-
-modalCloses.forEach(closeBtn => {
-  closeBtn.addEventListener('click', () => {
-    closeBtn.closest('.modal').classList.remove('active');
-  });
-});
-
-modals.forEach(modal => {
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-  });
-});
-
-// Initialiser EmailJS avec votre User ID
-(function () {
-  emailjs.init("F38ACmNnMwm_sZeRG"); // Remplacez par votre User ID EmailJS
-})();
-
-// Form submission
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  formStatus.textContent = 'Envoi en cours...';
-  formStatus.style.color = 'var(--accent)';
-
-  emailjs.sendForm('service_3kj3yex', 'template_9jo2gcs', contactForm)
-    .then(function (response) {
-      console.log('SUCCESS!', response);
-      formStatus.textContent = '✓ Message envoyé avec succès !';
-      formStatus.style.color = 'var(--accent)';
-      contactForm.reset();
-    }, function (error) {
-      // AFFICHER L'ERREUR COMPLÈTE
-      console.error('ERREUR COMPLÈTE:', error);
-      console.error('Message:', error.text);
-      console.error('Status:', error.status);
-
-      formStatus.textContent = '✗ Erreur: ' + error.text;
-      formStatus.style.color = '#ff4444';
+// ---------- Active nav link on scroll (home page only) ----------
+const sections = document.querySelectorAll('section[id]');
+if (sections.length) {
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (pageYOffset >= section.offsetTop - 200) current = section.id;
     });
-});
-
-// Scroll animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
   });
-}, observerOptions);
+}
 
-document.querySelectorAll('.project-card, .skill-card, .timeline-item, .document-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'all 0.6s ease-out';
-  observer.observe(el);
+// ---------- Scroll reveal ----------
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  if (reduceMotion) { el.classList.add('in'); } else { revealObserver.observe(el); }
 });
 
-// PDF Viewer Modal
+// ---------- PDF viewer modal ----------
 const pdfModal = document.getElementById('pdf-modal');
-const pdfViewer = document.getElementById('pdf-viewer');
-const pdfTitle = document.getElementById('pdf-title');
-const pdfDownload = document.getElementById('pdf-download');
-const viewButtons = document.querySelectorAll('.btn-view');
+if (pdfModal) {
+  const pdfViewer = document.getElementById('pdf-viewer');
+  const pdfTitle = document.getElementById('pdf-title');
+  const pdfClose = document.getElementById('pdf-close');
 
-viewButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const pdfPath = btn.getAttribute('data-pdf');
-    const cardTitle = btn.closest('.document-card').querySelector('h3').textContent;
-    
-    pdfViewer.src = pdfPath;
-    pdfTitle.textContent = cardTitle;
-    pdfDownload.href = pdfPath;
-    pdfDownload.download = pdfPath;
-    
-    pdfModal.classList.add('active');
+  document.querySelectorAll('[data-pdf]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pdfPath = btn.getAttribute('data-pdf');
+      pdfViewer.src = pdfPath;
+      pdfTitle.textContent = pdfPath;
+      pdfModal.style.display = 'flex';
+    });
   });
-});
+  function closePdf() { pdfModal.style.display = 'none'; pdfViewer.src = ''; }
+  pdfClose.addEventListener('click', closePdf);
+  pdfModal.addEventListener('click', (e) => { if (e.target === pdfModal) closePdf(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePdf(); });
+}
 
-// Close PDF modal
-const pdfModalClose = pdfModal.querySelector('.modal-close');
-pdfModalClose.addEventListener('click', () => {
-  pdfModal.classList.remove('active');
-  pdfViewer.src = '';
-});
+// ---------- Project detail modals ----------
+const projectModalOverlay = document.getElementById('project-modal-overlay');
+if (projectModalOverlay) {
+  const projectModalBody = document.getElementById('project-modal-body');
+  const projectModalClose = document.getElementById('project-modal-close');
 
-pdfModal.addEventListener('click', (e) => {
-  if (e.target === pdfModal) {
-    pdfModal.classList.remove('active');
-    pdfViewer.src = '';
+  function openProjectModal(targetId) {
+    const template = document.getElementById(targetId);
+    if (!template) return;
+    projectModalBody.innerHTML = '';
+    projectModalBody.appendChild(template.content.cloneNode(true));
+    projectModalOverlay.classList.add('show');
   }
-});
+  function closeProjectModal() {
+    projectModalOverlay.classList.remove('show');
+  }
 
-// Active nav link on scroll
-const sections = document.querySelectorAll('section');
-const navLinksArray = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= (sectionTop - 200)) {
-      current = section.getAttribute('id');
-    }
+  document.querySelectorAll('.modal-card').forEach(card => {
+    card.addEventListener('click', () => openProjectModal(card.getAttribute('data-target')));
   });
+  projectModalClose.addEventListener('click', closeProjectModal);
+  projectModalOverlay.addEventListener('click', (e) => {
+    if (e.target === projectModalOverlay) closeProjectModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeProjectModal();
+  });
+}
 
-  navLinksArray.forEach(link => {
-    link.style.color = 'var(--text)';
-    if (link.getAttribute('href').slice(1) === current) {
-      link.style.color = 'var(--accent)';
-    }
+// ---------- Parcours (accordéon) ----------
+document.querySelectorAll('.parcours-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const expanded = row.getAttribute('aria-expanded') === 'true';
+    row.setAttribute('aria-expanded', String(!expanded));
   });
 });

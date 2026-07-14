@@ -1,379 +1,351 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name=description content="Portfolio de Thomas COUTAYE, Administrateur Systèmes & Réseaux en recherche de stage IT. Découvrez mon parcours, projets et compétences.">
-  <title>Portfolio - Administrateur Systèmes & Réseaux</title>
-  <link rel="stylesheet" href="stylesheet.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Thomas Coutaye — Administrateur Systèmes & Réseaux en recherche de stage IT. Portfolio, projets et compétences.">
+<title>Thomas Coutaye — Portfolio</title>
+<link rel="stylesheet" href="stylesheet.css">
 </head>
-
 <body>
-  <div class="bg-animation"></div>
 
-  <header>
-    <nav>
-      <div class="logo">COUTAYE Thomas</div>
-      
-      <button class="burger" id="burger">☰</button>
-      
-      <ul id="nav-links">
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#documents">Documents</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">≡</button>
+    <nav class="links" id="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#documents">Documents</a>
+      <a href="#hero">Contact</a>
     </nav>
-  </header>
-
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1>Administrateur <span class="highlight">Systèmes & Réseaux</span></h1>
-      <p>Étudiant passionné par l'infrastructure IT, Actuellement en Bachelor à
-        l'IPI Toulouse.</p>
-      <h2><span class="highlight">Actuellement en recherche de stage</span></h2>
-      <div class="hero-actions">
-        <a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer" class="btn-linkedin" title="Mon profil LinkedIn">
-          in
-        </a>
-        <a href="COUTAYE-Thomas-CV-STAGE-IT.pdf" download class="btn-cv" title="Télécharger mon CV">
-          <span>📄 Télécharger CV</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">À propos</h2>
-    <div class="about-content">
-      <p>Je suis étudiant à l'Institut Polytechnique et Informatique de Toulouse en deuxième année, où je prépare un <strong>Bachelor en
-          Administration des Systèmes, Réseaux et Bases de Données</strong>. Passionné par l'infrastructure IT,
-        l'automatisation et la sécurité informatique, j'aime découvrir de nouvelles technologies et les approfondir tout
-        en relevant de nouveaux défis&nbsp;!</p>
-    </div>
-  </section>
-
-  <section id="parcours">
-    <h2 class="section-title">Mon Parcours</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2020</h3>
-          <p>Baccalauréat Scientifique - Mention Assez Bien avec Mention Européenne Anglais.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2021 - 2022</h3>
-          <p>Vendeur Polyvalent chez DECATHLON Réunion – développement des soft skills et travail en équipe.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2022 - 2024</h3>
-          <p>Formation à distance « Graduate Développeur Front-End » (non finalisé) – acquisition de compétences en
-            développement web moderne.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2024 - Présent</h3>
-          <p>Bachelor Administrateur Systèmes & Réseaux et Bases de Données à l'IPI de Toulouse. Actuellement en
-            deuxième année.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="section-title">Projets</h2>
-
-    <h3 style="color: var(--accent); margin-bottom: 2rem; font-size: 1.75rem;">Projets Personnels</h3>
-    <div class="project-grid">
-      <div class="project-card" data-modal="modal-proxmox">
-        <h3>🖥️ Serveur Proxmox Personnel</h3>
-        <p>Laboratoire virtuel complet avec virtualisation, routage, VPN et automatisation via Ansible.</p>
-        <div>
-          <span class="project-tag">Proxmox</span>
-          <span class="project-tag">OPNsense</span>
-          <span class="project-tag">VPN</span>
-          <span class="project-tag">Ansible</span>
-        </div>
-      </div>
-    </div>
-
-    <h3 style="color: var(--accent); margin: 3rem 0 2rem; font-size: 1.75rem;">Projets Académiques</h3>
-    <div class="project-grid">
-      <div class="project-card" data-modal="modal-labo">
-        <h3>🔬 Projet Laboratoire</h3>
-        <p>Projet inter-promotion avec mise en place de serveurs Proxmox, virtualisation et tests d'infrastructure.</p>
-        <div>
-          <span class="project-tag">Proxmox</span>
-          <span class="project-tag">VM</span>
-          <span class="project-tag">Tests</span>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="modal-piscine">
-        <h3>🏊 Projet Piscine</h3>
-        <p>Infrastructure réseau complète pour entreprise fictive avec OPNsense, DHCP et plan d'adressage IP.</p>
-        <div>
-          <span class="project-tag">OPNsense</span>
-          <span class="project-tag">DHCP</span>
-          <span class="project-tag">Réseau</span>
-        </div>
-      </div>
-      <div class="project-card" data-modal="modal-redteam">
-        <h3>🕷️ Atelier Red-Team</h3>
-        <p>TP Attaque par rogue DHCP/DNS et notion de Man-in-the-Middle (MITM) DNS.</p>
-        <div>
-          <span class="project-tag">DNS</span>
-          <span class="project-tag">DHCP</span>
-          <span class="project-tag">Réseau</span>
-        </div>
-      </div>
-      <div class="project-card" data-modal="modal-MS">
-        <h3>📖 Stage - Administrateur Systèmes & Réseaux chez Mathésciences</h3>
-        <p>Conception, mise en place et administration d'une infrastructure réseau et système pour une entreprise de tutoring.</p>
-        <div>
-          <span class="project-tag">Migration applicative</span>
-          <span class="project-tag">Mise en place d'une plateforme collaborative</span>
-          <span class="project-tag">Documentation</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-
-
-
-  <section id="documents">
-    <h2 class="section-title">Documents & Certifications</h2>
-    <div class="documents-grid">
-      <div class="document-card">
-        <div class="document-icon">📄</div>
-        <h3>Curriculum Vitae</h3>
-        <p>Mon CV détaillé avec mon parcours académique et professionnel</p>
-        <div class="document-actions">
-          <button class="btn-view" data-pdf="COUTAYE-Thomas-CV-STAGE-IT.pdf">
-            👁️ Visualiser
-          </button>
-          <a href="COUTAYE-Thomas-CV-STAGE-IT.pdf" download class="btn-download">
-            ⬇️ Télécharger
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2 class="section-title">Compétences</h2>
-    <div class="skill-level-badge">
-      <span class="level-icon">📊</span>
-      <span class="level-text">Niveau actuel : <strong>Junior</strong></span>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>💻 Systèmes d'exploitation</h3>
-        <ul>
-          <li>Linux (Debian, Ubuntu, CentOS)</li>
-          <li>Windows Server (AD DS, DNS, DHCP, IIS)</li>
-          <li>Gestion utilisateurs et droits</li>
-          <li>Scripting (Bash, PowerShell)</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>🌐 Réseaux</h3>
-        <ul>
-          <li>Modèle OSI et TCP/IP</li>
-          <li>DHCP, DNS, HTTP/HTTPS, SSH</li>
-          <li>Configuration pare-feu et VPN</li>
-          <li>Cisco Packet Tracer</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>🔧 Virtualisation</h3>
-        <ul>
-          <li>Proxmox VE</li>
-          <li>VMware Workstation</li>
-          <li>Gestion de VM</li>
-          <li>Virtualisation imbriquée</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>🗄️ Bases de données</h3>
-        <ul>
-          <li>SQL et MySQL</li>
-          <li>PhpMyAdmin</li>
-          <li>Conception de schémas</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>🔒 Cybersécurité</h3>
-        <ul>
-          <li>Chiffrement et authentification</li>
-          <li>Sécurisation des accès</li>
-          <li>Outils de découverte</li>
-          <li>VPN (WireGuard)</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>⚙️ Outils & DevOps</h3>
-        <ul>
-          <li>Git / GitHub</li>
-          <li>Ansible (automatisation)</li>
-          <li>Shell scripting</li>
-          <li>Wireshark</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h3>🤝 Soft Skills</h3>
-        <ul>
-          <li>Travail en équipe</li>
-          <li>Communication claire</li>
-          <li>Résolution de problèmes</li>
-          <li>Adaptabilité</li>
-          <li>Gestion du temps</li>
-          <li>Esprit d'analyse</li>
-          <li>Pédagogue</li>
-          <li>Curieux</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  
-
-  <footer>
-    <p>© 2025 - Portfolio Administrateur Systèmes & Réseaux</p>
-  </footer>
-
-  <!-- Modals -->
-  <div id="modal-proxmox" class="modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <h3>🖥️ Serveur Personnel Proxmox</h3>
-      <p>J'ai mis en place un laboratoire virtuel complet pour tester et approfondir mes compétences en
-        virtualisation, sécurité et automatisation.</p>
-      <p>Ce projet m'a permis de simuler un environnement réseau professionnel avec plusieurs machines virtuelles
-        interconnectées.</p>
-      <h4 style="color: var(--accent); margin-top: 1.5rem;">Technologies utilisées :</h4>
-      <ul>
-        <li>Installation et configuration d'un serveur Proxmox VE</li>
-        <li>Déploiement et administration d'OPNsense (routeur + pare-feu)</li>
-        <li>Configuration d'un VPN pour accès distant sécurisé</li>
-        <li>Automatisation avec Ansible pour le déploiement et la configuration</li>
-        <li>Gestion du DHCP et des réservations IP</li>
-      </ul>
-    </div>
   </div>
+</header>
 
-  <div id="modal-labo" class="modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <h3>🔬 Projet Laboratoire 1ère année</h3>
-      <p>Projet académique inter-promotion, où chaque groupe met en place différentes technologies et infrastructures
-        selon son niveau.<br><br> En première année, j'ai occupé le rôle de technicien, chargé de tester les procédures
-        et de mettre en place l'infrastructure de base.</p>
-      <h4 style="color: var(--accent); margin-top: 1.5rem;">Tâches réalisées :</h4>
-      <ul>
-        <li>Test et validation des procédures écrites par les promotions supérieures</li>
-        <li>Mise en place d'un serveur Proxmox de test</li>
-        <li>Création et configuration de machines virtuelles</li>
-        <li>Tests de virtualisation imbriquée (nested virtualization)</li>
-        <li>Documentation des résultats et problèmes rencontrés</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-piscine" class="modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <h3>🏊 Projet Piscine 1ère année</h3>
-      <p>Le but du projet était de mettre en place une infrastructure complète (système, réseau, services) nécessaire au
-        fonctionnement d'une entreprise fictive.<br><br> La promotion était répartie en plusieurs groupes, chacun étant
-        attribué à un service différent.<br><br> Notre groupe était chargé du DHCP et du plan d'adressage IP. Nous avons
-        poussé le projet plus loin en installant un <strong>OPNsense</strong>, chargé de gérer le DHCP, les réservations
-        et le pare-feu.</p>
-      <h4 style="color: var(--accent); margin-top: 1.5rem;">Réalisations :</h4>
-      <ul>
-        <li>Installation et configuration d'un pare-feu OPNsense</li>
-        <li>Conception du plan d'adressage IP pour toute l'infrastructure</li>
-        <li>Configuration du serveur DHCP avec zones multiples</li>
-        <li>Configuration des règles de pare-feu par sous-réseau</li>
-        <li>Segmentation réseau selon les besoins de l'entreprise</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-redteam" class="modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
-      <h3>🕷️ Atelier Red-Team</h3>
-      <p>TP Attaque par <strong>rogue DHCP/DNS</strong> et notion de Man-in-the-Middle (MITM) DNS.</p>
-      <h4 style="color: var(--accent); margin-top: 1.5rem;">Réalisations :</h4>
-      <ul>
-        <li>Déploiement et configuration d'un routeur Debian (DHCP, DNS, routage)</li>
-        <li>Conception et mise en place des VMnet (VMnet isolée ↔ VMnet8 NAT) sous VMware Workstation</li>
-        <li>Configuration du serveur DHCP et des réservations côté routeur Debian</li>
-        <li>Installation d'un faux routeur DHCP/DNS sur la machine malveillante pour tests d'attaque</li>
-        <li>Création d'un faux site bancaire avec Apache pour exercices d'ingénierie sociale et d'analyse</li>
-        <li>Série de commandes et étapes pédagogiques pour observer la communication, l'attaque et les contre-mesures</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Modal PDF Viewer -->
-  <div id="pdf-modal" class="modal">
-    <div class="modal-content modal-pdf">
-      <button class="modal-close">&times;</button>
-      <h3 id="pdf-title">Document</h3>
-      <div class="pdf-viewer-container">
-        <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
-      </div>
-      <div class="pdf-actions">
-        <a id="pdf-download" href="" download class="btn btn-primary">⬇️ Télécharger ce document</a>
+<section id="hero" class="hero">
+  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
+  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
+  <div class="wrap hero-grid">
+    <h1 class="hero-title">Thomas<span class="line2">Coutaye</span></h1>
+    <div class="hero-side">
+      <p class="hero-subtitle">Étudiant en Bachelor Administrateur Systèmes, Réseaux & Bases de Données à l'IPI Toulouse. En recherche de stage.</p>
+      <div class="hero-contact-inline">
+        <p class="eyebrow">Contact</p>
+        <div class="hero-actions">
+          <a href="mailto:votre@email.com" class="btn btn-solid">Email</a>
+          <a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+          <a href="CV-ALTERNANCE-COUTAYE-THOMAS.pdf" download class="btn">Télécharger mon CV</a>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!---Modal EXPERIENCES -->
-  <div id="modal-MS" class="modal">
-  <div class="modal-content">
-    <button class="modal-close">&times;</button>
-    <h3>📖 Stage - Administrateur Systèmes & Réseaux chez Mathésciences</h3>
-    <p>Poste occupé de Février à Mars 2026</p>
-    <h4 style="color: var(--accent); margin-top: 1.5rem;">Missions réalisées :</h4>
-    <ul>
-      <li>Installation et configuration de serveurs Linux (Debian, Ubuntu)</li>
-      <li>Mise en place et maintenance de services réseau (DHCP)</li>
-      <li>Configuration de pare-feu et sécurité réseau</li>
-      <li>Support technique aux utilisateurs finaux</li>
-      <li>Déploiement d'une instance Nextcloud avec sécurisation des accès et gestion des utilisateurs.</li>
-      <li>Configuration de l'imprimante réseau</li>
+<section id="about" class="reveal">
+  <div class="wrap about-inner">
+    <p class="eyebrow">À propos</p>
+    <p>Étudiant en 3ᵉ année à l'IPI de Toulouse, je prépare un Bachelor en Administration des Systèmes, Réseaux et Bases de Données. Attiré par l'administration système, les réseaux, la virtualisation et la sécurité, j'aime concevoir, déployer et améliorer des infrastructures fiables et sécurisées.
+      <strong>Je recherche actuellement une <b>alternance</b> afin de contribuer à des projets concrets tout en renforçant mon expertise technique.</strong>
+    </p>
+  </div>
+</section>
+
+<section id="parcours" class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Chronologie</p>
+    <h2 class="section-title">Mon <em>parcours</em></h2>
+
+    <div class="parcours-list">
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2020</span>
+          <span class="parcours-row-title">Baccalauréat Scientifique</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <span>Mention Assez Bien, Mention Européenne Anglais.</span>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2021–22</span>
+          <span class="parcours-row-title">Vendeur Polyvalent — Decathlon Réunion</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Accueillir, conseiller et orienter les clients en fonction de leurs besoins</li>
+            <li>Assurer la mise en rayon, le réassort et l'attractivité des espaces de vente</li>
+            <li>Veiller à la bonne tenue du magasin</li>
+            <li>Contribuer à l'animation du rayon et à la mise en place d'opérations commerciales</li>
+          </ul>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2022–24</span>
+          <span class="parcours-row-title">Graduate Développeur Front-End (à distance)</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <span>Formation non finalisée — bases en développement web moderne.</span>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2024</span>
+          <span class="parcours-row-title">Chargé d'assistance — Allianz Réunion</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Informer et conseiller les clients sur leurs garanties, leurs droits et les procédures à suivre</li>
+            <li>Communication claire et empathique avec les clients</li>
+            <li>Organisation et prise de notes des appels reçus</li>
+            <li>Maîtrise des logiciels fournis</li>
+          </ul>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2024</span>
+          <span class="parcours-row-title">Barman — Honey Night Club</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Préparation et service des boissons</li>
+            <li>Gestion de la caisse et des paiements</li>
+            <li>Entretien de la propreté du bar</li>
+            <li>Gestion du stock et approvisionnement du bar</li>
+            <li>Animation de l'ambiance du bar et fidélisation de la clientèle grâce à un excellent relationnel</li>
+          </ul>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">2024–auj.</span>
+          <span class="parcours-row-title">Bachelor ASRBD — IPI Toulouse</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <span>Rentrée en 3ᵉ année : Sep 2026</span>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">Été 2025</span>
+          <span class="parcours-row-title">Vendeur Polyvalent — Decathlon Fenouillet</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Accueillir, conseiller et orienter les clients en fonction de leurs besoins</li>
+            <li>Assurer la mise en rayon, le réassort et l'attractivité des espaces de vente</li>
+            <li>Veiller à la bonne tenue du magasin</li>
+            <li>Contribuer à l'animation du rayon et à la mise en place d'opérations commerciales</li>
+          </ul>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">Fév.–Mars 2026</span>
+          <span class="parcours-row-title">Stagiaire Administration Réseau — Mathésciences</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Déploiement et sécurisation de l'infrastructure réseau : VPN, pare-feu et supervision</li>
+            <li>Pilotage de la migration applicative de plusieurs services vers un hyperviseur</li>
+            <li>Installation de solutions collaboratives (Nextcloud)</li>
+            <li>Gestion du parc hardware et rédaction de documentation technique</li>
+          </ul>
+        </span>
+      </button>
+
+      <button type="button" class="parcours-row" aria-expanded="false">
+        <span class="parcours-row-head">
+          <span class="parcours-row-year">Avril–Juil. 2026</span>
+          <span class="parcours-row-title">Stagiaire Technicien CSC — Orange</span>
+          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
+        </span>
+        <span class="parcours-row-details">
+          <ul>
+            <li>Suivi rigoureux des tickets d'incidents télécom</li>
+            <li>Diagnostic des incidents clients en back office et coordination des interventions</li>
+            <li>Relation de confiance avec les clients et partenaires</li>
+          </ul>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="skills" class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Savoir-faire</p>
+    <h2 class="section-title">Mes <em>compétences</em></h2>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <h4>Systèmes</h4>
+        <div class="chip-row">
+          <span class="chip">Linux (Debian, Ubuntu, CentOS)</span>
+          <span class="chip">Windows Server</span>
+          <span class="chip">Scripting Bash/PowerShell</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Réseaux</h4>
+        <div class="chip-row">
+          <span class="chip">TCP/IP, DHCP, DNS</span>
+          <span class="chip">Pare-feu & VPN</span>
+          <span class="chip">Packet Tracer</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Virtualisation</h4>
+        <div class="chip-row">
+          <span class="chip">Proxmox VE</span>
+          <span class="chip">VMware Workstation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Bases de données</h4>
+        <div class="chip-row">
+          <span class="chip">SQL / MySQL</span>
+          <span class="chip">PhpMyAdmin</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Cybersécurité</h4>
+        <div class="chip-row">
+          <span class="chip">Sécurisation des accès</span>
+          <span class="chip">WireGuard</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>DevOps</h4>
+        <div class="chip-row">
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">Ansible</span>
+          <span class="chip">Wireshark</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Savoir-être</h4>
+        <div class="chip-row">
+          <span class="chip">Travail en équipe</span>
+          <span class="chip">Pédagogue & curieux</span>
+          <span class="chip">Adaptabilité</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Réalisations</p>
+    <h2 class="section-title">Mes <em>projets</em></h2>
+    <div class="masonry">
+      <a href="projects.html#proxmox" class="masonry-card tall">
+        <div class="masonry-media">🖥️</div>
+        <div class="masonry-body">
+          <h4>Serveur Proxmox Personnel</h4>
+          <p>Laboratoire virtuel : virtualisation, routage, VPN, automatisation Ansible.</p>
+          <span class="masonry-tag">Projet personnel</span>
+        </div>
+      </a>
+      <a href="projects.html#labo" class="masonry-card short">
+        <div class="masonry-media">🔬</div>
+        <div class="masonry-body">
+          <h4>Projet Laboratoire</h4>
+          <p>Mise en place de serveurs Proxmox inter-promotion.</p>
+          <span class="masonry-tag">Académique</span>
+        </div>
+      </a>
+      <a href="projects.html#piscine" class="masonry-card tall">
+        <div class="masonry-media">🏊</div>
+        <div class="masonry-body">
+          <h4>Projet Piscine</h4>
+          <p>Infrastructure réseau complète pour entreprise fictive.</p>
+          <span class="masonry-tag">Académique</span>
+        </div>
+      </a>
+      <a href="projects.html#redteam" class="masonry-card short">
+        <div class="masonry-media">🕷️</div>
+        <div class="masonry-body">
+          <h4>Atelier Red-Team</h4>
+          <p>Rogue DHCP/DNS et Man-in-the-Middle.</p>
+          <span class="masonry-tag">Académique</span>
+        </div>
+      </a>
+      <a href="projects.html#ms" class="masonry-card tall">
+        <div class="masonry-media">📖</div>
+        <div class="masonry-body">
+          <h4>Stage — Mathésciences</h4>
+          <p>Infrastructure réseau et système pour une entreprise de tutoring.</p>
+          <span class="masonry-tag">Stage</span>
+        </div>
+      </a>
+    </div>
+    <div class="view-all">
+      <a href="projects.html" class="btn btn-solid">Voir tous les projets en détail →</a>
+    </div>
+  </div>
+</section>
+
+<section id="documents" class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Ressources</p>
+    <h2 class="section-title"><em>Documents</em></h2>
+    <div class="doc-list">
+      <div class="doc-row">
+        <span class="doc-name">COUTAYE-Thomas-CV-STAGE-IT.pdf</span>
+        <div class="doc-actions">
+          <button data-pdf="COUTAYE-Thomas-CV-STAGE-IT.pdf">Aperçu</button>
+          <a href="COUTAYE-Thomas-CV-STAGE-IT.pdf" download>Télécharger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
+  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">Thomas Coutaye</p>
+      <p class="footer-meta">© 2026 — Toulouse, France</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="#hero">Contact</a></li>
     </ul>
+  </div>
+</footer>
+
+<!-- PDF Viewer Modal -->
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" style="display:none; position:fixed; inset:0; z-index:2000; background:rgba(20,32,26,0.7); align-items:center; justify-content:center; padding:1.5rem;">
+  <div style="background:#fff; border-radius:8px; max-width:900px; width:100%; max-height:85vh; overflow:hidden; position:relative; padding:1.5rem;">
+    <button id="pdf-close" aria-label="Fermer" style="position:absolute; top:0.8rem; right:1rem; background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--ink-dim);">&times;</button>
+    <h3 id="pdf-title" style="font-family:var(--font-display); margin-bottom:1rem;">Document</h3>
+    <iframe id="pdf-viewer" src="" title="Aperçu du document" style="width:100%; height:65vh; border:1px solid var(--border); border-radius:6px;"></iframe>
   </div>
 </div>
 
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
