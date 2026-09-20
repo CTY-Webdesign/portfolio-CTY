@@ -82,6 +82,58 @@ if (projectModalOverlay) {
   });
 }
 
+// ---------- Project filters (projects-index.html) ----------
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const projectGrid = document.getElementById('project-grid');
+const projectGridEmpty = document.getElementById('project-grid-empty');
+
+if (filterButtons.length && projectCards.length) {
+  function applyFilter(filter) {
+    let visibleCount = 0;
+    projectCards.forEach(card => {
+      const match = filter === 'all' || card.getAttribute('data-category') === filter;
+      if (match) {
+        card.hidden = false;
+        requestAnimationFrame(() => card.classList.remove('is-leaving'));
+        visibleCount++;
+      } else {
+        card.classList.add('is-leaving');
+        setTimeout(() => {
+          if (card.classList.contains('is-leaving')) card.hidden = true;
+        }, 220);
+      }
+    });
+    if (projectGridEmpty) projectGridEmpty.hidden = visibleCount !== 0;
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+
+  const validFilters = ['academique', 'personnel', 'stage'];
+  const params = new URLSearchParams(window.location.search);
+  const hashFilter = window.location.hash.replace('#', '');
+  const initial = params.get('filter') || (validFilters.includes(hashFilter) ? hashFilter : null);
+  if (initial) {
+    const initialBtn = document.querySelector('.filter-btn[data-filter="' + initial + '"]');
+    if (initialBtn) {
+      initialBtn.click();
+      if (projectGrid) {
+        window.requestAnimationFrame(() => projectGrid.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }));
+      }
+    }
+  }
+}
+
 // ---------- Parcours (accordéon) ----------
 document.querySelectorAll('.parcours-row').forEach(row => {
   row.addEventListener('click', () => {

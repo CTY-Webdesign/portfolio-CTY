@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stage Administrateur Systèmes & Réseaux chez Mathésciences — migration Proxmox, sécurisation réseau, sauvegarde et supervision, par Thomas Coutaye.">
+<title>Stage Mathésciences — Thomas Coutaye</title>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">≡</button>
+    <nav class="links" id="nav-links">
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#skills">Compétences</a>
+      <a href="index.html#documents">Documents</a>
+      <a href="index.html#hero">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a href="projects-index.html" class="back-link">← Retour aux projets</a>
+    <div class="project-hero-grid">
+      <div>
+        <span class="project-hero-cat">Stage — février à mars 2026</span>
+        <h1 class="project-hero-title">Administrateur Systèmes &amp; Réseaux — Mathésciences</h1>
+        <p class="project-hero-tagline">Stage de deux mois au sein d'une entreprise de soutien scolaire, avec pour mission principale la migration complète de son infrastructure historique (TrueNAS Scale) vers Proxmox VE, la sécurisation du réseau, et la mise en place d'un système de sauvegarde et de supervision.</p>
+      </div>
+      <div class="project-hero-media" data-emoji="📖">
+        <img src="images/projects/mathesciences-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Contexte</h2>
+    <p>J'ai rencontré Mathésciences lors d'un jobdating organisé par mon école. Notre échange a fait ressortir que les outils informatiques utilisés en interne — l'entreprise s'appuyait alors sur TrueNAS Scale pour faire tourner ses services — n'étaient plus les plus adaptés à son fonctionnement quotidien ni à ses projets futurs.</p>
+    <p>Après avoir présenté Proxmox VE, une solution open source que j'avais déjà pratiquée en cours et à titre personnel, j'ai été recruté pour un stage de deux mois avec quatre objectifs : migrer l'infrastructure vers Proxmox, optimiser le stockage du serveur, mettre en place un système de sauvegarde robuste, et finaliser diverses tâches informatiques.</p>
+    <p>La première phase a consisté en un audit complet : état des lieux des deux hyperviseurs, inventaire du parc informatique, et analyse des besoins avec mon tuteur à partir d'une roadmap de suivi. Cet audit a débouché sur un schéma réseau de l'infrastructure existante puis sur un schéma prévisionnel de la cible à atteindre.</p>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Stack technique</h2>
+    <div class="tech-chips">
+      <span class="tech-chip">Proxmox VE</span>
+      <span class="tech-chip">Proxmox Backup Server</span>
+      <span class="tech-chip">OPNsense</span>
+      <span class="tech-chip">Wireguard</span>
+      <span class="tech-chip">Nginx Proxy Manager</span>
+      <span class="tech-chip">Docker Compose</span>
+      <span class="tech-chip">Nextcloud AIO</span>
+      <span class="tech-chip">Traefik</span>
+      <span class="tech-chip">MariaDB / MySQL</span>
+      <span class="tech-chip">Prometheus</span>
+      <span class="tech-chip">Node Exporter</span>
+      <span class="tech-chip">Grafana</span>
+      <span class="tech-chip">Uptime Kuma</span>
+      <span class="tech-chip">Bash</span>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Architecture réseau</h2>
+    <ul>
+      <li>Réseau de production isolé du réseau principal via une VM OPNsense</li>
+      <li>Réseau de laboratoire séparé pour tester avant mise en production</li>
+      <li>Port forwarding + réservations DHCP → IP/ports réels masqués, surface d'exposition réduite</li>
+      <li>VPN Wireguard dans un conteneur LXC dédié, séparé d'OPNsense pour ne pas le surcharger</li>
+      <li>Reverse proxy (Nginx Proxy Manager) : un sous-domaine par service, SSL auto via Let's Encrypt</li>
+      <li>Double redirection de port (box → OPNsense → conteneur) pour rendre VPN et reverse proxy accessibles</li>
+    </ul>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Missions</h2>
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Stockage</strong>
+        <p>Disque 6 To installé à froid, script Bash (GPT + ext4), intégré à Proxmox.</p>
+      </div>
+      <div class="info-card">
+        <strong>Réseau / sécurité</strong>
+        <p>Déploiement d'OPNsense, du VPN et du reverse proxy.</p>
+      </div>
+      <div class="info-card">
+        <strong>Migration n8n</strong>
+        <p>Export JSON via shell du conteneur → SSH → redéploiement en LXC (Docker Compose).</p>
+      </div>
+      <div class="info-card">
+        <strong>Migration Vaultwarden</strong>
+        <p>Export/import du coffre JSON, nouveau conteneur (Traefik + MariaDB).</p>
+      </div>
+      <div class="info-card">
+        <strong>Migration Nextcloud</strong>
+        <p>150+ Go transférés (SFTP), VM dédiée, hardening, politique de mots de passe, customisation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Sauvegarde &amp; résilience</h2>
+    <p>Trois niveaux de protection mis en place :</p>
+    <ul>
+      <li>Ancien serveur reconverti en serveur de sauvegarde dédié (site distant)</li>
+      <li>Proxmox Backup Server (PBS), compatible nativement avec Proxmox VE</li>
+      <li>3 niveaux : sauvegarde locale + sauvegarde distante (PBS) + support externe</li>
+      <li>LVM créé pour exploiter tout le stockage disponible en datastore</li>
+      <li>Tunnel Wireguard dédié entre l'hyperviseur et le PBS (sites distants)</li>
+      <li>Politique GFS : quotidien (7j) → hebdomadaire (4 sem.) → mensuel (12 mois)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Monitoring</h2>
+    <p>Un conteneur dédié regroupe tous les outils de supervision de l'infrastructure en production :</p>
+    <ul>
+      <li><strong>Prometheus :</strong> collecte des métriques</li>
+      <li><strong>Node Exporter :</strong> agent sur chaque machine, expose les métriques (CPU/RAM/disque/réseau) que Prometheus vient interroger</li>
+      <li><strong>Grafana :</strong> visualisation via dashboards communautaires</li>
+      <li><strong>Uptime Kuma :</strong> sondes HTTPS/IP pour la disponibilité des services</li>
+      <li>Alertes envoyées en temps réel via un bot Telegram dédié</li>
+    </ul>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Résultats</h2>
+    <div class="results-callout">
+      <p>L'objectif fixé a été atteint : migration réussie des services critiques (Nextcloud en tête), mise en place de la sécurité réseau, d'un système de sauvegarde à trois niveaux et d'une supervision opérationnelle — les administrateurs sont aujourd'hui alertés dès qu'un service tombe.</p>
+      <p>Ce stage m'a confirmé mon attrait pour l'administration systèmes et réseaux et m'a donné envie d'approfondir une voie DevOps. Au-delà des compétences techniques, j'ai été mis au défi sur la gestion de projet et la communication à distance avec mon tuteur, situé à l'étranger pendant une partie du stage.</p>
+      <p>Axes d'amélioration identifiés : gestion de projet et documentation technique, sur lesquels je continue de progresser depuis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Galerie</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-emoji="🗺️"><img src="images/projects/mathesciences-1.jpg" alt="Schéma réseau" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item" data-emoji="📊"><img src="images/projects/mathesciences-2.jpg" alt="Dashboard Grafana" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item" data-emoji="🖥️"><img src="images/projects/mathesciences-3.jpg" alt="Interface Proxmox" loading="lazy" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<nav class="project-nav wrap" aria-label="Navigation entre projets">
+  <a href="project-redteam.html" class="project-nav-link prev">
+    <small>← Projet précédent</small>
+    Atelier Red-Team
+  </a>
+  <a href="project-proxmox.html" class="project-nav-link next">
+    <small>Projet suivant →</small>
+    Serveur Proxmox Personnel
+  </a>
+</nav>
+
+<footer>
+  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
+  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">Thomas Coutaye</p>
+      <p class="footer-meta">© 2026 — Toulouse, France</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="index.html#hero">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

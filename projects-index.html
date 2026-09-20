@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tous les projets de Thomas Coutaye — infrastructure, réseaux, virtualisation et cybersécurité. Filtrez par catégorie : académique, personnel, stage.">
+<title>Projets — Thomas Coutaye</title>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">≡</button>
+    <nav class="links" id="nav-links">
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#skills">Compétences</a>
+      <a href="index.html#documents">Documents</a>
+      <a href="index.html#hero">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="projects-detail-header">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <p class="eyebrow">Réalisations</p>
+    <h1 class="section-title">Tous les <em>projets</em></h1>
+    <p class="projects-index-lead">Un aperçu de mes réalisations académiques, personnelles et de stage — filtrez par catégorie ou cliquez sur un projet pour en voir le détail complet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filtrer les projets par catégorie">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" class="filter-btn" data-filter="academique" aria-pressed="false">Académique</button>
+      <button type="button" class="filter-btn" data-filter="personnel" aria-pressed="false">Personnel</button>
+      <button type="button" class="filter-btn" data-filter="stage" aria-pressed="false">Stage</button>
+    </div>
+
+    <div class="project-grid" id="project-grid">
+
+      <a href="project-proxmox.html" class="project-card tall" data-category="personnel">
+        <div class="card-media" data-emoji="🖥️">
+          <img src="images/projects/proxmox-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-tags">
+            <span class="tag tag-cat">Personnel</span>
+            <span class="tag">Proxmox</span>
+            <span class="tag">Ansible</span>
+          </div>
+          <h3>Serveur Proxmox Personnel</h3>
+          <p>Laboratoire virtuel : virtualisation, routage, VPN, automatisation Ansible.</p>
+          <span class="project-card-link">Voir le détail →</span>
+        </div>
+      </a>
+
+      <a href="project-labo.html" class="project-card short" data-category="academique">
+        <div class="card-media" data-emoji="🔬">
+          <img src="images/projects/labo-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-tags">
+            <span class="tag tag-cat">Académique</span>
+            <span class="tag">Proxmox</span>
+          </div>
+          <h3>Projet Laboratoire</h3>
+          <p>Mise en place de serveurs Proxmox inter-promotion.</p>
+          <span class="project-card-link">Voir le détail →</span>
+        </div>
+      </a>
+
+      <a href="project-piscine.html" class="project-card tall" data-category="academique">
+        <div class="card-media" data-emoji="🏊">
+          <img src="images/projects/piscine-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-tags">
+            <span class="tag tag-cat">Académique</span>
+            <span class="tag">OPNsense</span>
+            <span class="tag">DHCP</span>
+          </div>
+          <h3>Projet Piscine</h3>
+          <p>Infrastructure réseau complète pour une entreprise fictive : plan d'adressage, DHCP et pare-feu.</p>
+          <span class="project-card-link">Voir le détail →</span>
+        </div>
+      </a>
+
+      <a href="project-redteam.html" class="project-card short" data-category="academique">
+        <div class="card-media" data-emoji="🕷️">
+          <img src="images/projects/redteam-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-tags">
+            <span class="tag tag-cat">Académique</span>
+            <span class="tag">MITM</span>
+          </div>
+          <h3>Atelier Red-Team</h3>
+          <p>Rogue DHCP/DNS et Man-in-the-Middle.</p>
+          <span class="project-card-link">Voir le détail →</span>
+        </div>
+      </a>
+
+      <a href="project-mathesciences.html" class="project-card tall" data-category="stage">
+        <div class="card-media" data-emoji="📖">
+          <img src="images/projects/mathesciences-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-tags">
+            <span class="tag tag-cat">Stage</span>
+            <span class="tag">Proxmox</span>
+            <span class="tag">Supervision</span>
+          </div>
+          <h3>Stage — Mathésciences</h3>
+          <p>Migration d'infrastructure, sécurisation réseau, sauvegarde et supervision pour une entreprise de tutoring.</p>
+          <span class="project-card-link">Voir le détail →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <p class="project-grid-empty" id="project-grid-empty" hidden>Aucun projet dans cette catégorie pour l'instant.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
+  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">Thomas Coutaye</p>
+      <p class="footer-meta">© 2026 — Toulouse, France</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="index.html#hero">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

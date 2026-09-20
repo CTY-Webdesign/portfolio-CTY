@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Projet Piscine — infrastructure réseau complète pour une entreprise fictive : plan d'adressage IP, DHCP multi-zones et pare-feu OPNsense.">
+<title>Projet Piscine — Thomas Coutaye</title>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">≡</button>
+    <nav class="links" id="nav-links">
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#skills">Compétences</a>
+      <a href="index.html#documents">Documents</a>
+      <a href="index.html#hero">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a href="projects-index.html" class="back-link">← Retour aux projets</a>
+    <div class="project-hero-grid">
+      <div>
+        <span class="project-hero-cat">Académique — 1ère année</span>
+        <h1 class="project-hero-title">Projet Piscine</h1>
+        <p class="project-hero-tagline">Mise en place d'une infrastructure complète pour une entreprise fictive, répartie en plusieurs groupes/services. Notre groupe était chargé du DHCP et du plan d'adressage IP.</p>
+      </div>
+      <div class="project-hero-media" data-emoji="🏊">
+        <img src="images/projects/piscine-cover.jpg" alt="" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Contexte</h2>
+    <p>La promotion était répartie en plusieurs groupes, chacun attribué à un service différent (DHCP, DNS, sécurité...). Notre groupe a poussé le projet plus loin en installant un OPNsense complet pour gérer DHCP, réservations et pare-feu.</p>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Stack technique</h2>
+    <div class="tech-chips">
+      <span class="tech-chip">OPNsense</span>
+      <span class="tech-chip">DHCP multi-zones</span>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Architecture</h2>
+    <p>Conception d'un plan d'adressage pour l'ensemble de l'infrastructure, avec segmentation réseau par service et règles de pare-feu dédiées à chaque sous-réseau.</p>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Étapes clés</h2>
+    <ol class="steps-list">
+      <li>Installation et configuration du pare-feu OPNsense</li>
+      <li>Conception du plan d'adressage IP</li>
+      <li>Configuration du serveur DHCP avec zones multiples</li>
+      <li>Configuration des règles de pare-feu par sous-réseau</li>
+      <li>Segmentation réseau selon les besoins de l'entreprise</li>
+    </ol>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="wrap">
+    <h2 class="project-section-title">Résultats</h2>
+    <div class="results-callout">
+      <p>Conception d'un plan d'adressage cohérent à l'échelle d'une infrastructure, et administration d'un pare-feu en environnement multi-services.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="project-nav wrap" aria-label="Navigation entre projets">
+  <a href="project-labo.html" class="project-nav-link prev">
+    <small>← Projet précédent</small>
+    Projet Laboratoire
+  </a>
+  <a href="project-redteam.html" class="project-nav-link next">
+    <small>Projet suivant →</small>
+    Atelier Red-Team
+  </a>
+</nav>
+
+<footer>
+  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
+  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">Thomas Coutaye</p>
+      <p class="footer-meta">© 2026 — Toulouse, France</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="index.html#hero">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
