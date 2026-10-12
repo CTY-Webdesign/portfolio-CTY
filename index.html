@@ -3,37 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Thomas Coutaye — Administrateur Systèmes & Réseaux en recherche de stage IT. Portfolio, projets et compétences.">
+<meta name="description" content="Thomas Coutaye — Administrateur Systèmes & Réseaux en recherche d'alternance. Portfolio, projets et compétences.">
 <title>Thomas Coutaye — Portfolio</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <button class="burger" id="burger" aria-label="Ouvrir le menu">≡</button>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">≡</button>
     <nav class="links" id="nav-links">
-      <a href="#about">À propos</a>
       <a href="#parcours">Parcours</a>
       <a href="#skills">Compétences</a>
       <a href="#projects">Projets</a>
       <a href="#documents">Documents</a>
-      <a href="#hero">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
+<main>
+
 <section id="hero" class="hero">
-  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
-  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
   <div class="wrap hero-grid">
     <h1 class="hero-title">Thomas<span class="line2">Coutaye</span></h1>
     <div class="hero-side">
-      <p class="hero-subtitle">Étudiant en Bachelor Administrateur Systèmes, Réseaux & Bases de Données à l'IPI Toulouse. En recherche de stage.</p>
-      <div class="hero-contact-inline">
+      <p class="hero-subtitle">Étudiant en 3ᵉ année de Bachelor Administrateur Systèmes, Réseaux &amp; Bases de Données à l'IPI Toulouse. En recherche d'alternance.</p>
+      <p class="hero-about">Attiré par l'administration système, les réseaux, la virtualisation et la sécurité, j'aime concevoir, déployer et améliorer des infrastructures fiables et sécurisées.</p>
+      <div class="hero-contact-inline" id="contact">
         <p class="eyebrow">Contact</p>
         <div class="hero-actions">
-          <a href="mailto:votre@email.com" class="btn btn-solid">Email</a>
+          <a href="mailto:thomas.coutaye@edu.igensia.com" class="btn btn-solid">Email</a>
           <a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
           <a href="CV-ALTERNANCE-COUTAYE-THOMAS.pdf" download class="btn">Télécharger mon CV</a>
         </div>
@@ -42,151 +43,81 @@
   </div>
 </section>
 
-<section id="about" class="reveal">
-  <div class="wrap about-inner">
-    <p class="eyebrow">À propos</p>
-    <p>Étudiant en 3ᵉ année à l'IPI de Toulouse, je prépare un Bachelor en Administration des Systèmes, Réseaux et Bases de Données. Attiré par l'administration système, les réseaux, la virtualisation et la sécurité, j'aime concevoir, déployer et améliorer des infrastructures fiables et sécurisées.
-      <strong>Je recherche actuellement une <b>alternance</b> afin de contribuer à des projets concrets tout en renforçant mon expertise technique.</strong>
-    </p>
-  </div>
-</section>
-
 <section id="parcours" class="reveal">
   <div class="wrap">
     <p class="eyebrow">Chronologie</p>
     <h2 class="section-title">Mon <em>parcours</em></h2>
 
-    <div class="parcours-list">
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2020</span>
-          <span class="parcours-row-title">Baccalauréat Scientifique</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <span>Mention Assez Bien, Mention Européenne Anglais.</span>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2021–22</span>
-          <span class="parcours-row-title">Vendeur Polyvalent — Decathlon Réunion</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
-            <li>Accueillir, conseiller et orienter les clients en fonction de leurs besoins</li>
-            <li>Assurer la mise en rayon, le réassort et l'attractivité des espaces de vente</li>
-            <li>Veiller à la bonne tenue du magasin</li>
-            <li>Contribuer à l'animation du rayon et à la mise en place d'opérations commerciales</li>
+    <div class="parcours-group">
+      <h3 class="eyebrow parcours-group-title">Expériences IT</h3>
+      <ol class="parcours-list">
+        <li class="poster-entry">
+          <p class="poster-meta">Avr.–Juil. 2026</p>
+          <h4 class="poster-title">Technicien Service Client<span class="visually-hidden"> — </span><span class="poster-org">Orange Wholesale</span></h4>
+          <ul class="parcours-points">
+            <li>Pilotage d'incidents télécom en back office, de la qualification à la clôture</li>
+            <li>Diagnostic fibre, énergie/climatisation et interconnexion VoIP</li>
+            <li>Coordination entre supervision, équipes terrain et opérateurs clients</li>
           </ul>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2022–24</span>
-          <span class="parcours-row-title">Graduate Développeur Front-End (à distance)</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <span>Formation non finalisée — bases en développement web moderne.</span>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2024</span>
-          <span class="parcours-row-title">Chargé d'assistance — Allianz Réunion</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
-            <li>Informer et conseiller les clients sur leurs garanties, leurs droits et les procédures à suivre</li>
-            <li>Communication claire et empathique avec les clients</li>
-            <li>Organisation et prise de notes des appels reçus</li>
-            <li>Maîtrise des logiciels fournis</li>
-          </ul>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2024</span>
-          <span class="parcours-row-title">Barman — Honey Night Club</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
-            <li>Préparation et service des boissons</li>
-            <li>Gestion de la caisse et des paiements</li>
-            <li>Entretien de la propreté du bar</li>
-            <li>Gestion du stock et approvisionnement du bar</li>
-            <li>Animation de l'ambiance du bar et fidélisation de la clientèle grâce à un excellent relationnel</li>
-          </ul>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">2024–auj.</span>
-          <span class="parcours-row-title">Bachelor ASRBD — IPI Toulouse</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <span>Rentrée en 3ᵉ année : Sep 2026</span>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">Été 2025</span>
-          <span class="parcours-row-title">Vendeur Polyvalent — Decathlon Fenouillet</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
-            <li>Accueillir, conseiller et orienter les clients en fonction de leurs besoins</li>
-            <li>Assurer la mise en rayon, le réassort et l'attractivité des espaces de vente</li>
-            <li>Veiller à la bonne tenue du magasin</li>
-            <li>Contribuer à l'animation du rayon et à la mise en place d'opérations commerciales</li>
-          </ul>
-        </span>
-      </button>
-
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">Fév.–Mars 2026</span>
-          <span class="parcours-row-title">Stagiaire Administration Réseau — Mathésciences</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">Fév.–Mars 2026</p>
+          <h4 class="poster-title">Stagiaire Administrateur Systèmes &amp; Réseaux<span class="visually-hidden"> — </span><span class="poster-org">Mathésciences</span></h4>
+          <ul class="parcours-points">
             <li>Déploiement et sécurisation de l'infrastructure réseau : VPN, pare-feu et supervision</li>
             <li>Pilotage de la migration applicative de plusieurs services vers un hyperviseur</li>
             <li>Installation de solutions collaboratives (Nextcloud)</li>
             <li>Gestion du parc hardware et rédaction de documentation technique</li>
           </ul>
-        </span>
-      </button>
+        </li>
+      </ol>
+    </div>
 
-      <button type="button" class="parcours-row" aria-expanded="false">
-        <span class="parcours-row-head">
-          <span class="parcours-row-year">Avril–Juil. 2026</span>
-          <span class="parcours-row-title">Stagiaire Technicien CSC — Orange</span>
-          <span class="parcours-row-chevron" aria-hidden="true">⌄</span>
-        </span>
-        <span class="parcours-row-details">
-          <ul>
-            <li>Suivi rigoureux des tickets d'incidents télécom</li>
-            <li>Diagnostic des incidents clients en back office et coordination des interventions</li>
-            <li>Relation de confiance avec les clients et partenaires</li>
-          </ul>
-        </span>
-      </button>
+    <div class="parcours-group">
+      <h3 class="eyebrow parcours-group-title">Formation</h3>
+      <ol class="parcours-list parcours-list--compact">
+        <li class="poster-entry">
+          <p class="poster-meta">2024–auj.</p>
+          <h4 class="poster-title">Bachelor ASRBD<span class="visually-hidden"> — </span><span class="poster-org">IPI Toulouse</span></h4>
+          <p class="parcours-desc">3ᵉ année en cours</p>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">2022–24</p>
+          <h4 class="poster-title">Graduate Développeur Front-End (à distance)</h4>
+          <p class="parcours-desc">Formation non finalisée — bases en développement web moderne.</p>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">2020</p>
+          <h4 class="poster-title">Baccalauréat Scientifique</h4>
+          <p class="parcours-desc">Mention Assez Bien, Mention Européenne Anglais.</p>
+        </li>
+      </ol>
+    </div>
 
+    <div class="parcours-group">
+      <h3 class="eyebrow parcours-group-title">Autres expériences</h3>
+      <ol class="parcours-list parcours-list--compact">
+        <li class="poster-entry">
+          <p class="poster-meta">Été 2025</p>
+          <h4 class="poster-title">Vendeur Polyvalent<span class="visually-hidden"> — </span><span class="poster-org">Decathlon Fenouillet</span></h4>
+          <p class="parcours-desc">Conseil client, mise en rayon, opérations commerciales.</p>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">2024</p>
+          <h4 class="poster-title">Chargé d'assistance<span class="visually-hidden"> — </span><span class="poster-org">Allianz Réunion</span></h4>
+          <p class="parcours-desc">Conseil clients sur leurs garanties et les procédures à suivre.</p>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">2024</p>
+          <h4 class="poster-title">Barman<span class="visually-hidden"> — </span><span class="poster-org">Honey Night Club</span></h4>
+          <p class="parcours-desc">Service, caisse, gestion du stock et relation client.</p>
+        </li>
+        <li class="poster-entry">
+          <p class="poster-meta">2021–22</p>
+          <h4 class="poster-title">Vendeur Polyvalent<span class="visually-hidden"> — </span><span class="poster-org">Decathlon Réunion</span></h4>
+          <p class="parcours-desc">Conseil client, mise en rayon, opérations commerciales.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
@@ -263,48 +194,50 @@
   <div class="wrap">
     <p class="eyebrow">Réalisations</p>
     <h2 class="section-title">Mes <em>projets</em></h2>
-    <div class="masonry">
-      <a href="projects.html#proxmox" class="masonry-card tall">
-        <div class="masonry-media">🖥️</div>
-        <div class="masonry-body">
-          <h4>Serveur Proxmox Personnel</h4>
-          <p>Laboratoire virtuel : virtualisation, routage, VPN, automatisation Ansible.</p>
-          <span class="masonry-tag">Projet personnel</span>
-        </div>
-      </a>
-      <a href="projects.html#labo" class="masonry-card short">
-        <div class="masonry-media">🔬</div>
-        <div class="masonry-body">
-          <h4>Projet Laboratoire</h4>
-          <p>Mise en place de serveurs Proxmox inter-promotion.</p>
-          <span class="masonry-tag">Académique</span>
-        </div>
-      </a>
-      <a href="projects.html#piscine" class="masonry-card tall">
-        <div class="masonry-media">🏊</div>
-        <div class="masonry-body">
-          <h4>Projet Piscine</h4>
-          <p>Infrastructure réseau complète pour entreprise fictive.</p>
-          <span class="masonry-tag">Académique</span>
-        </div>
-      </a>
-      <a href="projects.html#redteam" class="masonry-card short">
-        <div class="masonry-media">🕷️</div>
-        <div class="masonry-body">
-          <h4>Atelier Red-Team</h4>
-          <p>Rogue DHCP/DNS et Man-in-the-Middle.</p>
-          <span class="masonry-tag">Académique</span>
-        </div>
-      </a>
-      <a href="projects.html#ms" class="masonry-card tall">
-        <div class="masonry-media">📖</div>
-        <div class="masonry-body">
-          <h4>Stage — Mathésciences</h4>
-          <p>Infrastructure réseau et système pour une entreprise de tutoring.</p>
-          <span class="masonry-tag">Stage</span>
-        </div>
-      </a>
-    </div>
+    <ul class="project-cards">
+      <li>
+        <a href="projects.html#orange" class="project-card">
+          <h3 class="project-card-title">Technicien Service Client — Orange Wholesale</h3>
+          <p class="project-card-desc">Pilotage d'incidents télécom en back office pour les grands comptes opérateurs : fibre, énergie/climatisation et interconnexion VoIP.</p>
+          <p class="project-card-meta">Stage — avril à juillet 2026</p>
+        </a>
+      </li>
+      <li>
+        <a href="projects.html#ms" class="project-card">
+          <h3 class="project-card-title">Stagiaire Administrateur Systèmes &amp; Réseaux — Mathésciences</h3>
+          <p class="project-card-desc">Infrastructure réseau et système pour une entreprise de soutien scolaire.</p>
+          <p class="project-card-meta">Stage — février à mars 2026</p>
+        </a>
+      </li>
+      <li>
+        <a href="projects.html#proxmox" class="project-card">
+          <h3 class="project-card-title">Serveur Proxmox Personnel</h3>
+          <p class="project-card-desc">Laboratoire virtuel : virtualisation, routage, VPN, automatisation Ansible.</p>
+          <p class="project-card-meta">Projet personnel</p>
+        </a>
+      </li>
+      <li>
+        <a href="projects.html#piscine" class="project-card">
+          <h3 class="project-card-title">Projet Piscine</h3>
+          <p class="project-card-desc">Infrastructure réseau complète pour entreprise fictive.</p>
+          <p class="project-card-meta">Académique — 1ʳᵉ année</p>
+        </a>
+      </li>
+      <li>
+        <a href="projects.html#labo" class="project-card">
+          <h3 class="project-card-title">Projet Laboratoire</h3>
+          <p class="project-card-desc">Mise en place de serveurs Proxmox inter-promotion.</p>
+          <p class="project-card-meta">Académique — 1ʳᵉ année</p>
+        </a>
+      </li>
+      <li>
+        <a href="projects.html#redteam" class="project-card">
+          <h3 class="project-card-title">Atelier Red-Team</h3>
+          <p class="project-card-desc">Rogue DHCP/DNS et Man-in-the-Middle.</p>
+          <p class="project-card-meta">Académique — Atelier</p>
+        </a>
+      </li>
+    </ul>
     <div class="view-all">
       <a href="projects.html" class="btn btn-solid">Voir tous les projets en détail →</a>
     </div>
@@ -327,9 +260,9 @@
   </div>
 </section>
 
+</main>
+
 <footer>
-  <span class="blob blob-leaf blob-green" aria-hidden="true"></span>
-  <span class="blob blob-leaf blob-brown" aria-hidden="true"></span>
   <div class="wrap footer-inner">
     <div>
       <p class="footer-name">Thomas Coutaye</p>
@@ -337,17 +270,17 @@
     </div>
     <ul class="footer-links">
       <li><a href="https://www.linkedin.com/in/thomas-coutaye-84a8301b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="#hero">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </footer>
 
 <!-- PDF Viewer Modal -->
-<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" style="display:none; position:fixed; inset:0; z-index:2000; background:rgba(20,32,26,0.7); align-items:center; justify-content:center; padding:1.5rem;">
+<div id="pdf-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="pdf-title" style="display:none; position:fixed; inset:0; z-index:2000; background:rgba(20,32,26,0.7); align-items:center; justify-content:center; padding:1.5rem;">
   <div style="background:#fff; border-radius:8px; max-width:900px; width:100%; max-height:85vh; overflow:hidden; position:relative; padding:1.5rem;">
     <button id="pdf-close" aria-label="Fermer" style="position:absolute; top:0.8rem; right:1rem; background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--ink-dim);">&times;</button>
     <h3 id="pdf-title" style="font-family:var(--font-display); margin-bottom:1rem;">Document</h3>
-    <iframe id="pdf-viewer" src="" title="Aperçu du document" style="width:100%; height:65vh; border:1px solid var(--border); border-radius:6px;"></iframe>
+    <iframe id="pdf-viewer" src="" title="Aperçu du document" tabindex="-1" style="width:100%; height:65vh; border:1px solid var(--border); border-radius:6px;"></iframe>
   </div>
 </div>
 
