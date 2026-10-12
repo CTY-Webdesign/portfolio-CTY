@@ -38,19 +38,29 @@ if (pdfModal) {
   const pdfViewer = document.getElementById('pdf-viewer');
   const pdfTitle = document.getElementById('pdf-title');
   const pdfClose = document.getElementById('pdf-close');
+  let pdfTriggerBtn = null;
 
   document.querySelectorAll('[data-pdf]').forEach(btn => {
     btn.addEventListener('click', () => {
       const pdfPath = btn.getAttribute('data-pdf');
+      pdfTriggerBtn = btn;
       pdfViewer.src = pdfPath;
       pdfTitle.textContent = pdfPath;
       pdfModal.style.display = 'flex';
+      pdfClose.focus();
     });
   });
-  function closePdf() { pdfModal.style.display = 'none'; pdfViewer.src = ''; }
+  function closePdf() {
+    if (pdfModal.style.display !== 'flex') return;
+    pdfModal.style.display = 'none';
+    pdfViewer.src = '';
+    if (pdfTriggerBtn) { pdfTriggerBtn.focus(); pdfTriggerBtn = null; }
+  }
   pdfClose.addEventListener('click', closePdf);
   pdfModal.addEventListener('click', (e) => { if (e.target === pdfModal) closePdf(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePdf(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pdfModal.style.display === 'flex') closePdf();
+  });
 }
 
 // ---------- Project detail modals ----------
