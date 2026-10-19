@@ -36,7 +36,86 @@
 <div class="wrap">
 
   <!-- ============================================
-       PROJET 1 — Stage Orange Wholesale
+       PROJET 1 — Kubernetes sur Talos (kublab01)
+       ============================================ -->
+  <article id="kubernetes" class="project-block poster-entry">
+    <p class="poster-meta">Projet personnel — octobre 2026</p>
+    <h2 class="poster-title">Cluster Kubernetes Talos &amp; déploiement Helm</h2>
+    <div class="project-block-grid">
+      <div class="project-block-info">
+        <p>Exercice pour apprendre Kubernetes et l'orchestration, en partant de zéro : exposer deux sites web sur leurs propres sous-domaines, déployés avec Helm sur un cluster Talos que j'ai monté sur mon serveur Proxmox VE.</p>
+        <ul class="key-figures" aria-label="Chiffres clés du projet">
+          <li><strong class="key-figure">2</strong><span class="key-label">sites exposés en HTTPS</span></li>
+          <li><strong class="key-figure">1</strong><span class="key-label">chart Helm réutilisé pour les deux sites</span></li>
+          <li><strong class="key-figure">2&nbsp;nœuds</strong><span class="key-label">Talos (control-plane + worker)</span></li>
+          <li><strong class="key-figure">4&nbsp;labs</strong><span class="key-label">du cluster vide au HTTPS</span></li>
+        </ul>
+        <ul class="project-points">
+          <li>Cluster Kubernetes sous Talos Linux, virtualisé sur Proxmox VE</li>
+          <li>Chart Helm écrit pour le projet, une release par site</li>
+          <li>Exposition via MetalLB et Traefik, certificats Let's Encrypt avec cert-manager</li>
+          <li>Garde-fous Git : hook pre-commit et script de déploiement traçable</li>
+          <li>Documentation du projet et de la théorie derrière chaque composant</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/CTY-Webdesign/kublab01" class="btn btn-solid" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+          <a href="https://cv-interactif.kublab01.duckdns.org" class="btn" target="_blank" rel="noopener noreferrer">CV interactif</a>
+          <a href="https://morpion.kublab01.duckdns.org" class="btn" target="_blank" rel="noopener noreferrer">Morpion</a>
+        </div>
+        <p class="project-links-note">Les deux sites tournent sur mon homelab. S'ils ne répondent pas, le code et la configuration restent consultables sur GitHub.</p>
+      </div>
+      <div class="project-tabs">
+        <section class="tab-panel" id="k8s-contexte">
+          <h3 class="tab-panel-title">Contexte</h3>
+          <p>Le cahier des charges tenait en quelques lignes : exposer deux serveurs web sur a.&lt;domaine&gt; et b.&lt;domaine&gt;, les déployer avec Helm sur un cluster Kubernetes Talos hébergé sur Proxmox VE, et fournir des liens qui fonctionnent depuis Internet.</p>
+          <p>Comme je découvrais Kubernetes, j'ai découpé le travail en quatre labs successifs en gardant le même cluster de bout en bout. Une fois la chaîne validée avec des pages de test, je les ai remplacées par deux contenus à moi : mon CV interactif et un jeu de morpion.</p>
+        </section>
+        <section class="tab-panel" id="k8s-stack">
+          <h3 class="tab-panel-title">Stack technique</h3>
+          <ul>
+            <li>Proxmox VE (hyperviseur) et Talos Linux (OS immuable dédié à Kubernetes, administré par API avec talosctl)</li>
+            <li>Kubernetes : 1 nœud control-plane + 1 worker, réseau de pods Flannel</li>
+            <li>Helm (chart « site » écrit pour le projet)</li>
+            <li>MetalLB en mode L2 (IP fixe sur le LAN pour le service LoadBalancer)</li>
+            <li>Traefik (Ingress Controller, redirection HTTP → HTTPS par Middleware)</li>
+            <li>cert-manager et Let's Encrypt (challenge HTTP-01, émetteur de test puis de production)</li>
+            <li>nginx en image officielle « unprivileged » (non-root)</li>
+            <li>OPNsense (routeur) et DuckDNS (DNS dynamique gratuit)</li>
+            <li>Bash et Git (scripts de contrôle et de déploiement, hook pre-commit)</li>
+            <li>Administration depuis un conteneur LXC dédié (kubectl, helm, talosctl)</li>
+          </ul>
+        </section>
+        <section class="tab-panel" id="k8s-architecture">
+          <h3 class="tab-panel-title">Architecture</h3>
+          <ul>
+            <li>Une requête vers un sous-domaine kublab01.duckdns.org arrive sur OPNsense, filtrée par CrowdSec et GeoIP, puis est redirigée vers l'IP fixe que MetalLB annonce sur le LAN</li>
+            <li>Traefik reçoit la requête et choisit le site selon le nom d'hôte (une ressource Ingress par site)</li>
+            <li>Chaque site a un Service interne (ClusterIP) qui répartit le trafic entre 2 pods nginx</li>
+            <li>Le contenu HTML/CSS/JS est embarqué dans une ConfigMap générée par le chart et monté en lecture seule</li>
+            <li>cert-manager obtient les certificats via un challenge HTTP-01 et les stocke dans des Secrets lus par Traefik</li>
+            <li>Les deux sites partagent un namespace dédié : tous les noms de ressources dérivent du nom de la release Helm, donc aucune collision</li>
+          </ul>
+        </section>
+        <section class="tab-panel" id="k8s-etapes">
+          <h3 class="tab-panel-title">Étapes clés</h3>
+          <ol>
+            <li><strong>Lab 1, cluster :</strong> création des VM Talos sur Proxmox, génération et application des configurations machine, bootstrap du control-plane, récupération du kubeconfig.</li>
+            <li><strong>Lab 2, premiers objets :</strong> Pod, Deployment et Service écrits à la main, pour comprendre ce que Helm génère ensuite.</li>
+            <li><strong>Lab 3, Helm et exposition :</strong> écriture du chart, deux releases, MetalLB et Traefik, NAT sur OPNsense et sous-domaines DuckDNS, puis mise en ligne du CV et du morpion.</li>
+            <li><strong>Lab 4, HTTPS :</strong> installation de cert-manager, validation avec l'émetteur de test Let's Encrypt, passage en production et redirection HTTPS forcée.</li>
+          </ol>
+        </section>
+        <section class="tab-panel" id="k8s-resultats">
+          <h3 class="tab-panel-title">Résultats</h3>
+          <p>Les deux sites sont en ligne en HTTPS avec un certificat Let's Encrypt valide, servis par le même chart Helm. Tout est versionné dans un dépôt public, sans aucun secret, et chaque site se redéploie en une commande.</p>
+          <p>La principale difficulté a été de comprendre la structure du cluster, le rôle de chaque fichier et la manière dont les composants interagissent. Je ne maîtrise pas encore tout : ma prochaine étape est de consolider la théorie à partir de ma documentation, puis de la mettre en pratique sur un nouveau projet.</p>
+        </section>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============================================
+       PROJET 2 — Stage Orange Wholesale
        ============================================ -->
   <article id="orange" class="project-block poster-entry">
     <p class="poster-meta">Stage — avril à juillet 2026</p>
@@ -86,7 +165,7 @@
   </article>
 
   <!-- ============================================
-       PROJET 2 — Stage Mathésciences
+       PROJET 3 — Stage Mathésciences
        ============================================ -->
   <article id="ms" class="project-block poster-entry">
     <p class="poster-meta">Stage — février à mars 2026</p>
@@ -186,7 +265,7 @@
   </article>
 
   <!-- ============================================
-       PROJET 3 — Serveur Proxmox Personnel
+       PROJET 4 — Serveur Proxmox Personnel
        ============================================ -->
   <article id="proxmox" class="project-block poster-entry">
     <p class="poster-meta">Projet personnel</p>
@@ -232,7 +311,7 @@
   </article>
 
   <!-- ============================================
-       PROJET 4 — Projet Piscine
+       PROJET 5 — Projet Piscine
        ============================================ -->
   <article id="piscine" class="project-block poster-entry">
     <p class="poster-meta">Académique — 1ʳᵉ année</p>
@@ -280,7 +359,7 @@
   </article>
 
   <!-- ============================================
-       PROJET 5 — Projet Laboratoire
+       PROJET 6 — Projet Laboratoire
        ============================================ -->
   <article id="labo" class="project-block poster-entry">
     <p class="poster-meta">Académique — 1ʳᵉ année</p>
@@ -324,7 +403,7 @@
   </article>
 
   <!-- ============================================
-       PROJET 6 — Atelier Red-Team
+       PROJET 7 — Atelier Red-Team
        ============================================ -->
   <article id="redteam" class="project-block poster-entry">
     <p class="poster-meta">Académique — Atelier</p>
