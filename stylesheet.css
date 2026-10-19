@@ -25,21 +25,22 @@
   --on-card:#fffafe; /* texte crème sur aplats vert/brun, identique dans les deux thèmes */
   --on-green:#fff;
   --nav-bg:rgba(255,250,254,0.92);
-  color-scheme:light dark;
+  color-scheme:light;
 }
 
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#111a15;
-    --green:#5ccf78;
-    --green-dark:#7fdc95;
-    --brown-text:#c9a877;
-    --ink:#eef2ee;
-    --ink-dim:#a6b3ab;
-    --border:rgba(238,242,238,0.16);
-    --on-green:#111a15;
-    --nav-bg:rgba(17,26,21,0.92);
-  }
+/* data-theme est posé dans le <head> (choix enregistré, sinon préférence système).
+   shortcut: sans JS, le site reste en clair ; ajouter un @media prefers-color-scheme si ça compte */
+:root[data-theme="dark"]{
+  --bg:#111a15;
+  --green:#5ccf78;
+  --green-dark:#7fdc95;
+  --brown-text:#c9a877;
+  --ink:#eef2ee;
+  --ink-dim:#a6b3ab;
+  --border:rgba(238,242,238,0.16);
+  --on-green:#111a15;
+  --nav-bg:rgba(17,26,21,0.92);
+  color-scheme:dark;
 }
 
 *{box-sizing:border-box;}
@@ -99,8 +100,15 @@ header.nav{
 }
 .nav-inner{
   display:flex; align-items:center; justify-content:center;
-  padding:1.1rem 0;
+  padding:1.1rem 0; position:relative;
 }
+.theme-toggle{
+  position:absolute; right:0; top:50%; transform:translateY(-50%);
+  width:2.4rem; height:2.4rem; border-radius:50%; cursor:pointer;
+  background:none; border:1.5px solid var(--border); color:var(--ink);
+  font-size:1.1rem; line-height:1; transition:border-color .2s, color .2s;
+}
+.theme-toggle:hover{border-color:var(--green); color:var(--green);}
 nav.links{display:flex; gap:2.1rem; list-style:none; margin:0; padding:0;}
 nav.links a{
   font-family:var(--font-display); font-size:0.92rem; font-weight:500;
@@ -437,6 +445,4 @@ footer{padding:5rem 0 3rem; border-top:1px solid var(--border); margin-top:3rem;
 }
 
 /* thème sombre : le vert clair ne porte pas le texte crème, on garde l'aplat foncé (en fin de fichier pour passer après .band-green) */
-@media (prefers-color-scheme:dark){
-  .skill-band.band-green{background:var(--card-green);}
-}
+[data-theme="dark"] .skill-band.band-green{background:var(--card-green);}

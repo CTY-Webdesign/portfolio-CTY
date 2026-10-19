@@ -12,6 +12,23 @@ if (burger) {
   });
 }
 
+// ---------- Theme toggle (theme initial posé dans le <head>) ----------
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  const root = document.documentElement;
+  function showTheme() {
+    const dark = root.dataset.theme === 'dark';
+    themeToggle.textContent = dark ? '☀' : '☾';
+    themeToggle.setAttribute('aria-pressed', String(dark));
+  }
+  themeToggle.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    showTheme();
+  });
+  showTheme();
+}
+
 // ---------- Active nav link on scroll (home page only) ----------
 const sections = document.querySelectorAll('section[id]');
 if (sections.length) {
