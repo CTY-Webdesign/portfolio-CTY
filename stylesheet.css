@@ -206,10 +206,12 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
   color:var(--green);
 }
 
-/* ===== PARCOURS (liste affiche, tout visible) ===== */
-.parcours-group + .parcours-group{margin-top:3.5rem;}
-.parcours-group-title{color:var(--green); margin-bottom:1.25rem;}
-.parcours-list{list-style:none; margin:0; padding:0;}
+/* ===== PARCOURS (frise : sans JS, toutes les étapes restent visibles) ===== */
+.timeline{list-style:none; margin:0; padding:0;}
+.timeline .poster-entry{padding-bottom:1.5rem;}
+.timeline .poster-meta{margin-bottom:0.6rem;}
+.timeline .poster-title{font-size:clamp(1.25rem, 2.4vw, 1.45rem); line-height:1.05; max-width:none;}
+.timeline .poster-org{font-size:0.95rem; margin-top:0.25rem;}
 .parcours-points{
   list-style:none; margin:1.1rem 0 0; padding:0;
   font-size:0.9rem; line-height:1.55; color:var(--ink-dim); max-width:46ch;
@@ -218,17 +220,25 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
 .parcours-points li::before, .project-points li::before{content:"– "; color:var(--green); font-weight:600;}
 .parcours-desc{margin:0.7rem 0 0; font-size:0.9rem; line-height:1.55; color:var(--ink-dim); max-width:46ch;}
 
-.parcours-list--compact .poster-entry{padding-bottom:1.5rem;}
-.parcours-list--compact .poster-meta{margin-bottom:0.6rem;}
-.parcours-list--compact .poster-title{font-size:clamp(1.25rem, 2.4vw, 1.45rem); line-height:1.05; max-width:none;}
-.parcours-list--compact .poster-org{font-size:0.95rem; margin-top:0.25rem;}
-
-@media (min-width:820px){
-  .parcours-list > li:nth-child(even){text-align:right;}
-  .parcours-list > li:nth-child(even) .poster-title,
-  .parcours-list > li:nth-child(even) .parcours-points,
-  .parcours-list > li:nth-child(even) .parcours-desc{margin-left:auto;}
+.timeline-rail{display:flex; justify-content:space-between; position:relative; margin:0.5rem 0 1.75rem;}
+.timeline-rail::before{content:""; position:absolute; left:0; right:0; top:8px; height:2px; background:var(--ink);}
+.timeline-dot{
+  position:relative; display:flex; flex-direction:column; align-items:center; gap:0.45rem;
+  background:none; border:0; padding:0; cursor:pointer;
+  font-family:var(--font-display); font-weight:600; font-size:0.72rem; letter-spacing:.08em; color:var(--ink-dim);
 }
+.timeline-dot::before{
+  content:""; width:18px; height:18px; border-radius:50%;
+  border:2px solid var(--ink); background:var(--bg); transition:background .2s, transform .2s;
+}
+.timeline-dot:hover::before{background:var(--green-tint);}
+.timeline-dot[aria-expanded="true"]{color:var(--green);}
+.timeline-dot[aria-expanded="true"]::before{background:var(--green); border-color:var(--green); transform:scale(1.25);}
+.timeline-dot:focus-visible{outline:2px solid var(--green); outline-offset:4px; border-radius:var(--radius);}
+/* toutes les cartes dans la même cellule : la hauteur ne bouge pas au survol */
+.timeline.is-enhanced{display:grid;}
+.timeline.is-enhanced > li{grid-area:1/1; visibility:hidden;}
+.timeline.is-enhanced > li.is-active{visibility:visible;}
 
 /* ===== SKILLS (blocs colorés, style magazine) ===== */
 .skills-bands{

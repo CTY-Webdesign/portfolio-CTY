@@ -146,3 +146,35 @@ document.querySelectorAll('.project-tabs').forEach(container => {
   container.classList.add('is-enhanced');
   select(0, false);
 });
+
+// ---------- Frise du parcours (sans JS, toutes les étapes restent visibles) ----------
+const timeline = document.querySelector('.timeline');
+if (timeline) {
+  const steps = Array.from(timeline.querySelectorAll(':scope > li'));
+  const rail = document.createElement('div');
+  rail.className = 'timeline-rail';
+
+  const dots = steps.map((step, i) => {
+    step.id = 'etape-' + i;
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'timeline-dot';
+    dot.textContent = step.dataset.year;
+    dot.setAttribute('aria-controls', step.id);
+    dot.setAttribute('aria-label', step.querySelector('.poster-meta').textContent + ' — ' + step.querySelector('.poster-title').textContent.replace(/\s+/g, ' ').trim());
+    ['mouseenter', 'focus', 'click'].forEach(type => dot.addEventListener(type, () => select(i)));
+    rail.appendChild(dot);
+    return dot;
+  });
+
+  function select(index) {
+    dots.forEach((dot, i) => {
+      dot.setAttribute('aria-expanded', String(i === index));
+      steps[i].classList.toggle('is-active', i === index);
+    });
+  }
+
+  timeline.before(rail);
+  timeline.classList.add('is-enhanced');
+  select(steps.length - 1);
+}
