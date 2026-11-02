@@ -161,7 +161,6 @@ if (timeline) {
     dot.className = 'timeline-dot';
     dot.textContent = step.dataset.year;
     dot.setAttribute('aria-controls', step.id);
-    dot.setAttribute('aria-label', step.querySelector('.poster-meta').textContent + ' — ' + step.querySelector('.poster-title').textContent.replace(/\s+/g, ' ').trim());
     ['mouseenter', 'focus', 'click'].forEach(type => dot.addEventListener(type, () => select(i)));
     rail.appendChild(dot);
     return dot;

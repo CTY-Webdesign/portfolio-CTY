@@ -208,6 +208,8 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
 
 /* ===== PARCOURS (frise : sans JS, toutes les étapes restent visibles) ===== */
 .timeline{list-style:none; margin:0; padding:0;}
+/* une année = plusieurs étapes côte à côte */
+.timeline > li{display:grid; grid-template-columns:repeat(auto-fit, minmax(15rem, 1fr)); gap:0 2rem;}
 .timeline .poster-entry{padding-bottom:1.5rem;}
 .timeline .poster-meta{margin-bottom:0.6rem;}
 .timeline .poster-title{font-size:clamp(1.25rem, 2.4vw, 1.45rem); line-height:1.05; max-width:none;}
@@ -221,14 +223,14 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
 .parcours-desc{margin:0.7rem 0 0; font-size:0.9rem; line-height:1.55; color:var(--ink-dim); max-width:46ch;}
 
 .timeline-rail{display:flex; justify-content:space-between; position:relative; margin:0.5rem 0 1.75rem;}
-.timeline-rail::before{content:""; position:absolute; left:0; right:0; top:8px; height:2px; background:var(--ink);}
+.timeline-rail::before{content:""; position:absolute; left:1.5rem; right:1.5rem; top:8px; height:2px; background:var(--ink);} /* d'un centre de cercle à l'autre */
 .timeline-dot{
   position:relative; display:flex; flex-direction:column; align-items:center; gap:0.45rem;
-  background:none; border:0; padding:0; cursor:pointer;
+  width:3rem; background:none; border:0; padding:0; cursor:pointer;
   font-family:var(--font-display); font-weight:600; font-size:0.72rem; letter-spacing:.08em; color:var(--ink-dim);
 }
 .timeline-dot::before{
-  content:""; width:18px; height:18px; border-radius:50%;
+  content:""; flex:none; width:18px; height:18px; border-radius:50%;
   border:2px solid var(--ink); background:var(--bg); transition:background .2s, transform .2s;
 }
 .timeline-dot:hover::before{background:var(--green-tint);}
@@ -239,6 +241,10 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
 .timeline.is-enhanced{display:grid;}
 .timeline.is-enhanced > li{grid-area:1/1; visibility:hidden;}
 .timeline.is-enhanced > li.is-active{visibility:visible;}
+/* sur mobile les années sont empilées : la hauteur suit la carte affichée */
+@media (max-width:820px){ .timeline.is-enhanced > li:not(.is-active){display:none;} }
+
+:is(#parcours, #skills, #projects) :is(.eyebrow, .section-title){text-align:center;}
 
 /* ===== SKILLS (blocs colorés, style magazine) ===== */
 .skills-bands{
