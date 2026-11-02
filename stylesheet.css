@@ -254,12 +254,8 @@ html:not(.js) .timeline-rail{display:none;}
 .timeline-dot[aria-expanded="true"]{color:var(--green);}
 .timeline-dot[aria-expanded="true"]::before{background:var(--green); border-color:var(--green); transform:scale(1.25);}
 .timeline-dot:focus-visible{outline:2px solid var(--green); outline-offset:4px; border-radius:var(--radius);}
-/* toutes les cartes dans la même cellule : la hauteur ne bouge pas au survol */
-.js .timeline{display:grid;}
-.js .timeline > li{grid-area:1/1; visibility:hidden;}
-.js .timeline > li.is-active{visibility:visible;}
-/* sur mobile les années sont empilées : la hauteur suit la carte affichée */
-@media (max-width:820px){ .js .timeline > li:not(.is-active){display:none;} }
+/* seule l'année choisie prend de la place : la hauteur suit son contenu */
+.js .timeline > li:not(.is-active){display:none;}
 
 :is(#parcours, #skills, #projects) :is(.eyebrow, .section-title){text-align:center;}
 
