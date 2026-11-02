@@ -151,8 +151,7 @@ document.querySelectorAll('.project-tabs').forEach(container => {
 const timeline = document.querySelector('.timeline');
 if (timeline) {
   const steps = Array.from(timeline.querySelectorAll(':scope > li'));
-  const rail = document.createElement('div');
-  rail.className = 'timeline-rail';
+  const rail = document.querySelector('.timeline-rail');
   const canHover = window.matchMedia('(hover: hover)').matches;
 
   const dots = steps.map((step, i) => {
@@ -177,7 +176,5 @@ if (timeline) {
     });
   }
 
-  timeline.before(rail);
-  timeline.classList.add('is-enhanced');
   select(steps.length - 1);
 }
