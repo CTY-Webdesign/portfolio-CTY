@@ -209,18 +209,18 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
 /* ===== PARCOURS (frise : sans JS, toutes les étapes restent visibles) ===== */
 .timeline{list-style:none; margin:0; padding:0;}
 /* une année = plusieurs étapes côte à côte */
-.timeline > li{display:grid; grid-template-columns:repeat(auto-fit, minmax(15rem, 1fr)); gap:0 2rem;}
+.timeline > li{display:grid; grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr)); gap:0 2.5rem;}
 .timeline .poster-entry{padding-bottom:1.5rem;}
-.timeline .poster-meta{margin-bottom:0.6rem;}
+.timeline .poster-meta{margin-bottom:0.6rem; font-size:0.8rem;}
 .timeline .poster-title{font-size:clamp(1.25rem, 2.4vw, 1.45rem); line-height:1.05; max-width:none;}
 .timeline .poster-org{font-size:0.95rem; margin-top:0.25rem;}
 .parcours-points{
   list-style:none; margin:1.1rem 0 0; padding:0;
-  font-size:0.9rem; line-height:1.55; color:var(--ink-dim); max-width:46ch;
+  font-size:1rem; line-height:1.6; color:var(--ink); max-width:46ch;
 }
-.parcours-points li{margin-bottom:0.35rem;}
+.parcours-points li{margin-bottom:0.5rem;}
 .parcours-points li::before, .project-points li::before{content:"– "; color:var(--green); font-weight:600;}
-.parcours-desc{margin:0.7rem 0 0; font-size:0.9rem; line-height:1.55; color:var(--ink-dim); max-width:46ch;}
+.parcours-desc{margin:0.7rem 0 0; font-size:1rem; line-height:1.6; color:var(--ink); max-width:46ch;}
 
 .timeline-rail{display:flex; justify-content:space-between; position:relative; margin:0.5rem 0 1.75rem;}
 .timeline-rail::before{content:""; position:absolute; left:1.5rem; right:1.5rem; top:8px; height:2px; background:var(--ink);} /* d'un centre de cercle à l'autre */
