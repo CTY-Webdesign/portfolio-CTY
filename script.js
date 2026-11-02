@@ -153,6 +153,7 @@ if (timeline) {
   const steps = Array.from(timeline.querySelectorAll(':scope > li'));
   const rail = document.createElement('div');
   rail.className = 'timeline-rail';
+  const canHover = window.matchMedia('(hover: hover)').matches;
 
   const dots = steps.map((step, i) => {
     step.id = 'etape-' + i;
@@ -161,7 +162,10 @@ if (timeline) {
     dot.className = 'timeline-dot';
     dot.textContent = step.dataset.year;
     dot.setAttribute('aria-controls', step.id);
-    ['mouseenter', 'focus', 'click'].forEach(type => dot.addEventListener(type, () => select(i)));
+    dot.addEventListener('click', () => select(i));
+    dot.addEventListener('focus', () => select(i));
+    // survol seulement avec une souris : sur téléphone, on choisit en touchant le point
+    if (canHover) dot.addEventListener('mouseenter', () => select(i));
     rail.appendChild(dot);
     return dot;
   });

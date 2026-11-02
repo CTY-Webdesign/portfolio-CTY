@@ -233,7 +233,7 @@ nav.links a:hover::after, nav.links a.active::after{width:100%;}
   content:""; flex:none; width:18px; height:18px; border-radius:50%;
   border:2px solid var(--ink); background:var(--bg); transition:background .2s, transform .2s;
 }
-.timeline-dot:hover::before{background:var(--green-tint);}
+@media (hover:hover){ .timeline-dot:hover::before{background:var(--green-tint);} }
 .timeline-dot[aria-expanded="true"]{color:var(--green);}
 .timeline-dot[aria-expanded="true"]::before{background:var(--green); border-color:var(--green); transform:scale(1.25);}
 .timeline-dot:focus-visible{outline:2px solid var(--green); outline-offset:4px; border-radius:var(--radius);}
