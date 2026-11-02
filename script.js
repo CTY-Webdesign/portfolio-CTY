@@ -18,7 +18,6 @@ if (themeToggle) {
   const root = document.documentElement;
   function showTheme() {
     const dark = root.dataset.theme === 'dark';
-    themeToggle.textContent = dark ? '☀' : '☾';
     themeToggle.setAttribute('aria-pressed', String(dark));
   }
   themeToggle.addEventListener('click', () => {
